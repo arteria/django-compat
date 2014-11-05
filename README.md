@@ -52,5 +52,8 @@ Bits and bites of the following projects are re-used to build [django-compat](ht
 - [X] https://github.com/tomchristie/django-rest-framework/blob/master/rest_framework/compat.py
 	- [ ] TODO: MinValueValidator, MaxValueValidator et al. (other relevant bits are included) Django 1.8
 - [ ] https://github.com/kennethreitz/requests/blob/master/requests/compat.py
+- [ ] https://github.com/mitsuhiko/jinja2/blob/master/jinja2/_compat.py
+ 
+
 
  
