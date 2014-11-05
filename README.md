@@ -41,7 +41,8 @@ Let's see where it goes.
 
 ## Resources 
 * https://github.com/ubernostrum/django-compat-lint
-
+* https://docs.djangoproject.com/en/dev/misc/api-stability/
+ 
 ## compat.py
 
 Bits and bites of the following projects are re-used to build [django-compat](https://github.com/arteria/django-compat).
