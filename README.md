@@ -6,6 +6,36 @@ For- and backwards compatibility layer for Django 1.4.+ to 1.7 .
 Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). 
 Let's see where it goes. 
 
+# Compatible objects
+
+* BytesIO
+* clean_manytomany_helptext
+* EmailValidator
+* force_text
+* get_model_name
+* get_user_model
+* get_username_field
+* handler404
+* handler500
+* HttpResponseBase
+* import_string
+* include
+* JsonResponse
+* parse_qs
+* patterns
+* python_2_unicode_compatible
+* smart_text
+* StringIO
+* unquote_plus
+* url
+* urlencode
+* urlparse
+* urlunparse
+* URLValidator
+* user_model_label
+* View
+
+
 
 # Resources and references 
 
