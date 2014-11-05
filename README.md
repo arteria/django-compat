@@ -16,11 +16,11 @@ Let's see where it goes.
 
 Bits and bites of the following projects are re-used to build [django-compat](https://github.com/arteria/django-compat).
 
-* [/] https://github.com/lukaszb/django-guardian/blob/devel/guardian/compat.py
-* [/] https://github.com/evonove/django-oauth-toolkit/blob/master/oauth2_provider/compat.py
-* [/] https://github.com/toastdriven/django-tastypie/blob/master/tastypie/compat.py
-* [/] https://github.com/tomchristie/django-rest-framework/blob/master/rest_framework/compat.py
-		* TODO: MinValueValidator, MaxValueValidator et al. (other relevant bits are included) Django 1.8
-* [ ] https://github.com/kennethreitz/requests/blob/master/requests/compat.py
+- [x] https://github.com/lukaszb/django-guardian/blob/devel/guardian/compat.py
+- [X] https://github.com/evonove/django-oauth-toolkit/blob/master/oauth2_provider/compat.py
+- [X] https://github.com/toastdriven/django-tastypie/blob/master/tastypie/compat.py
+- [X] https://github.com/tomchristie/django-rest-framework/blob/master/rest_framework/compat.py
+	- [ ] TODO: MinValueValidator, MaxValueValidator et al. (other relevant bits are included) Django 1.8
+- [ ] https://github.com/kennethreitz/requests/blob/master/requests/compat.py
 
  
