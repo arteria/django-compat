@@ -45,7 +45,7 @@ Let's see where it goes.
  
 ## compat.py
 
-Bits and bites of the following projects are re-used to build [django-compat](https://github.com/arteria/django-compat).
+Bits and bites of the following projects were re-used to build [django-compat](https://github.com/arteria/django-compat).
 
 - [x] https://github.com/lukaszb/django-guardian/blob/devel/guardian/compat.py
 - [X] https://github.com/evonove/django-oauth-toolkit/blob/master/oauth2_provider/compat.py
