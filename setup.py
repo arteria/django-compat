@@ -9,6 +9,5 @@ setup(
     author_email="admin@arteria.ch",
     packages=find_packages(),
     include_package_data=True,
- 
-
+    description="For- and backwards compatibility layer for Django 1.4 to 1.7",
 )
