@@ -15,7 +15,11 @@ try:
 except ImportError:
     import six
     
-
+# get_indent
+if six.PY3:
+    from threading import get_ident
+else:
+    from thread import get_ident  # noqa
 
 try:
     from django.conf.urls import url, patterns, include, handler404, handler500
@@ -255,6 +259,7 @@ __all__ = [
     'get_model_name',
     'get_user_model',
     'get_username_field',
+    'get_indent',
     'import_string',
     'user_model_label',
     'url',
