@@ -12,6 +12,7 @@ Let's see where it goes.
 * clean_manytomany_helptext
 * EmailValidator
 * force_text
+* get_indent
 * get_model_name
 * get_user_model
 * get_username_field
@@ -52,6 +53,7 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 - [X] https://github.com/toastdriven/django-tastypie/blob/master/tastypie/compat.py
 - [X] https://github.com/tomchristie/django-rest-framework/blob/master/rest_framework/compat.py
 	- [ ] TODO: MinValueValidator, MaxValueValidator et al. (other relevant bits are included) Django 1.8
+- [X] https://gist.github.com/theskumar/ff8de60ff6a33bdacaa8
 - [ ] https://github.com/kennethreitz/requests/blob/master/requests/compat.py
 - [ ] https://github.com/mitsuhiko/jinja2/blob/master/jinja2/_compat.py
  
