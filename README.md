@@ -36,7 +36,27 @@ Let's see where it goes.
 * user_model_label
 * View
 
+# Manual adjustments
 
+## ``url`` template tag 
+
+The  ``url`` template tag works different in Django 1.4, see the [release notes](https://docs.djangoproject.com/en/1.4/releases/1.3/#changes-to-url-and-ssi) for more info. 
+
+### Old, Django 1.4
+
+	{% url url_name %} 
+	{% url url_name argument1 argument2 %}
+	
+### New, Django 1.4 + using forwards compatibility.
+	
+	{% load url from future %}
+	... 
+	{% url 'url_name' %} 
+	{% url 'url_name' argument1 argument2 %}
+	
+The following ``sed`` command can be used to update your templates. Note that the ``{% load url from future %}`` is missing and must be added manually.
+	
+	sed -i -r 's/url ([^"]+) %/url "\1" %/g' template.html
 
 # Resources and references 
 
