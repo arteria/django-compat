@@ -58,6 +58,19 @@ The following ``sed`` command can be used to update your templates. Note that th
 	
 	sed -i -r 's/url ([^"]+) %/url "\1" %/g' template.html
 
+
+The inplace editing works great on Linux. If your are working on a Mac and you get the following error 
+    
+    	"\1 not defined in the RE"
+
+try the following command:
+
+	TMP_FILE=`mktemp /tmp/sed.XXXXXXXXXX`
+	sed -E 's/url ([^"]+) %/url "\1" %/g' template.html > $TMP_FILE
+	mv $TMP_FILE template.html
+
+
+
 # Resources and references 
 
 ## Resources 
