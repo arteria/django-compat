@@ -40,7 +40,7 @@ Let's see where it goes.
 
 ## ``url`` template tag 
 
-The  ``url`` template tag works different in Django 1.4, see the [release notes](https://docs.djangoproject.com/en/1.4/releases/1.3/#changes-to-url-and-ssi) for more info. This solution is based on this [stackoverflow quersion](http://stackoverflow.com/a/13592772/485361).
+The  ``url`` template tag works different in Django 1.4, see the [release notes](https://docs.djangoproject.com/en/1.4/releases/1.3/#changes-to-url-and-ssi) for more info. 
 
 ### Old, Django 1.4
 
@@ -69,6 +69,7 @@ try the following command:
 	sed -E "s#\{% url ([a-zA-Z0-9_.:-]+)#\{% url '\1'#g" template.html > $TMP_FILE
 	mv $TMP_FILE template.html
 
+Source: [stackoverflow, Migrate url tags to Django 1.5](http://stackoverflow.com/a/13592772/485361)
 
 
 # Resources and references 
