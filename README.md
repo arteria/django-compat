@@ -40,7 +40,7 @@ Let's see where it goes.
 
 ## ``url`` template tag 
 
-The  ``url`` template tag works different in Django 1.4, see the [release notes](https://docs.djangoproject.com/en/1.4/releases/1.3/#changes-to-url-and-ssi) for more info. 
+The  ``url`` template tag works different in Django 1.4, see the [release notes](https://docs.djangoproject.com/en/1.4/releases/1.3/#changes-to-url-and-ssi) for more info. This solution is based on this [stackoverflow quersion](http://stackoverflow.com/a/13592772/485361).
 
 ### Old, Django 1.4
 
@@ -76,6 +76,7 @@ try the following command:
 ## Resources 
 * https://github.com/ubernostrum/django-compat-lint
 * https://docs.djangoproject.com/en/dev/misc/api-stability/
+*  
  
 ## compat.py
 
