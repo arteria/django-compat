@@ -56,7 +56,7 @@ The  ``url`` template tag works different in Django 1.4, see the [release notes]
 	
 The following ``sed`` command can be used to update your templates. Note that the ``{% load url from future %}`` is missing and must be added manually.
 	
-	sed -i -r 's/url ([^"]+) %/url "\1" %/g' template.html
+	sed -i -r "s#\{% url ([a-zA-Z0-9_.:-]+)#\{% url '\1'#g" template.html
 
 
 The inplace editing works great on Linux. If your are working on a Mac and you get the following error 
@@ -66,7 +66,7 @@ The inplace editing works great on Linux. If your are working on a Mac and you g
 try the following command:
 
 	TMP_FILE=`mktemp /tmp/sed.XXXXXXXXXX`
-	sed -E 's/url ([^"]+) %/url "\1" %/g' template.html > $TMP_FILE
+	sed -E "s#\{% url ([a-zA-Z0-9_.:-]+)#\{% url '\1'#g" template.html > $TMP_FILE
 	mv $TMP_FILE template.html
 
 
