@@ -78,6 +78,7 @@ Source: [stackoverflow, Migrate url tags to Django 1.5](http://stackoverflow.com
 * https://github.com/ubernostrum/django-compat-lint
 * https://docs.djangoproject.com/en/dev/misc/api-stability/
 * https://docs.djangoproject.com/en/dev/topics/python3/
+* http://andrewsforge.com/presentation/upgrading-django-to-17/ 
  
 ## compat.py
 
