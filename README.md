@@ -1,7 +1,7 @@
 django-compat
 =============
 
-For- and backwards compatibility layer for Django 1.4.+ to 1.7 .
+For- and backwards compatibility layer for Django 1.4.x to 1.8-alpha
 
 Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). 
 Let's see where it goes. 
