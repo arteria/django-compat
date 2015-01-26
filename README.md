@@ -25,6 +25,7 @@ Let's see where it goes.
 * parse_qs
 * patterns
 * python_2_unicode_compatible
+* simplejson
 * smart_text
 * StringIO
 * unquote_plus

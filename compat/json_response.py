@@ -5,7 +5,7 @@ Source: https://djangosnippets.org/snippets/154/
 from django.core.serializers import json, serialize
 from django.db.models.query import QuerySet
 from django.http import HttpResponse
-from django.utils import simplejson
+from compat import simplejson
 
 class JsonResponse(HttpResponse):
     def __init__(self, object):

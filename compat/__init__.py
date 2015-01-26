@@ -255,6 +255,12 @@ def create_permissions(*args, **kwargs):
         args = args[:1] + args[2:]
     return original_create_permissions(*args, **kwargs)
 
+# Requires django < 1.5 or python >= 2.6
+try:
+    import json as simplejson
+except:
+    from django.utils import simplejson
+
 __all__ = [ 
     'get_model_name',
     'get_user_model',
@@ -285,4 +291,5 @@ __all__ = [
     'clean_manytomany_helptext', 
     'smart_text',
     'force_text',
+    'simplejson'
 ]
