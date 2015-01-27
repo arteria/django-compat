@@ -5,8 +5,16 @@ import sys
 import inspect
 import django
 
-from django.conf import settings 
-from django.utils.importlib import import_module
+from django.conf import settings
+
+# requirest django < 1.7 or python > 2.7
+if django.VERSION >= (1,7):
+    import importlib
+else:
+    from django.utils import importlib
+
+from importlib import import_module
+    
 
 from django.core.exceptions import ImproperlyConfigured
 try:
@@ -256,10 +264,11 @@ def create_permissions(*args, **kwargs):
     return original_create_permissions(*args, **kwargs)
 
 # Requires django < 1.5 or python >= 2.6
-try:
-    import json as simplejson
-except:
+if django.VERSION < (1,5):
     from django.utils import simplejson
+else:
+    import json as simplejson
+    
 
 __all__ = [ 
     'get_model_name',
@@ -291,5 +300,6 @@ __all__ = [
     'clean_manytomany_helptext', 
     'smart_text',
     'force_text',
-    'simplejson'
+    'simplejson',
+    'importlib',
 ]
