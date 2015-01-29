@@ -5,11 +5,14 @@ import sys
 import inspect
 import django
 
+#django.setup()
+
 from django.conf import settings
 
 # requirest django < 1.7 or python > 2.7
 if django.VERSION >= (1,7):
     import importlib
+    #from importlib import import_module
 else:
     from django.utils import importlib
 
@@ -155,11 +158,22 @@ except ImportError:
 
 user_model_label = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
+"""
 try:
     from django.contrib.auth import get_user_model
 except ImportError:
     from django.contrib.auth.models import User
     get_user_model = lambda: User
+"""
+try:
+    get_user_model = lambda: settings.AUTH_USER_MODEL
+except:
+    try:
+        from django.contrib.auth import get_user_model
+    except ImportError:
+        from django.contrib.auth.models import User
+        get_user_model = lambda: User
+
 
 # get_username_field
 if django.VERSION >= (1, 5):
@@ -268,6 +282,14 @@ if django.VERSION < (1,5):
     from django.utils import simplejson
 else:
     import json as simplejson
+
+
+### Undocumented ###
+
+try:
+    from django.template import VariableNode
+except:
+    from django.template.base import VariableNode
     
 
 __all__ = [ 
@@ -301,5 +323,5 @@ __all__ = [
     'smart_text',
     'force_text',
     'simplejson',
-    'importlib',
+    'import_module',
 ]
