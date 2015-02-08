@@ -6,9 +6,13 @@ import inspect
 import django
 
 from django.conf import settings 
-from django.utils.importlib import import_module
-
 from django.core.exceptions import ImproperlyConfigured
+
+try:
+    from importlib import import_module
+except ImportError:  # Fallback for Python 2.6 & Django < 1.7
+    from django.utils.importlib import import_module
+
 try:
     # django 1.4.2+ , https://docs.djangoproject.com/en/1.5/topics/python3/#philosophy
     from django.utils import six
