@@ -1,1 +1,1 @@
-from test_compat import CompatTests
+from .test_compat import CompatTests
