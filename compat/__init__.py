@@ -5,21 +5,15 @@ import sys
 import inspect
 import django
 
-#django.setup()
-
-from django.conf import settings
-
-# requirest django < 1.7 or python > 2.7
-if django.VERSION >= (1,7):
-    import importlib
-    #from importlib import import_module
-else:
-    from django.utils import importlib
-
-from importlib import import_module
-    
+from django.conf import settings 
 
 from django.core.exceptions import ImproperlyConfigured
+
+try:
+    from importlib import import_module
+except ImportError:  # Fallback for Python 2.6 & Django < 1.7
+    from django.utils.importlib import import_module
+
 try:
     # django 1.4.2+ , https://docs.djangoproject.com/en/1.5/topics/python3/#philosophy
     from django.utils import six
@@ -296,7 +290,7 @@ __all__ = [
     'get_model_name',
     'get_user_model',
     'get_username_field',
-    'get_indent',
+    #'get_indent',
     'import_string',
     'user_model_label',
     'url',
