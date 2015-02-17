@@ -12,6 +12,7 @@ Let's see where it goes.
 * clean_manytomany_helptext
 * EmailValidator
 * force_text
+* get_ident
 * get_model_name
 * get_user_model
 * get_username_field
@@ -35,6 +36,7 @@ Let's see where it goes.
 * urlunparse
 * URLValidator
 * user_model_label
+* VariableNode
 * View
 
 # Manual adjustments

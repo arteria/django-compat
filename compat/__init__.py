@@ -285,7 +285,7 @@ try:
 except:
     from django.template.base import VariableNode
     
-
+#the tests will try to import these
 __all__ = [ 
     'get_model_name',
     'get_user_model',
@@ -297,6 +297,7 @@ __all__ = [
     'include',
     'handler404',
     'handler500',
+    'get_ident',
    # 'mock',
    # 'unittest',
     'urlparse', 
@@ -317,4 +318,5 @@ __all__ = [
     'force_text',
     'simplejson',
     'import_module',
+    'VariableNode',
 ]
