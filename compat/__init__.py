@@ -6,6 +6,7 @@ import inspect
 import django
 
 from django.conf import settings 
+
 from django.core.exceptions import ImproperlyConfigured
 
 try:
@@ -151,11 +152,22 @@ except ImportError:
 
 user_model_label = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
+"""
 try:
     from django.contrib.auth import get_user_model
 except ImportError:
     from django.contrib.auth.models import User
     get_user_model = lambda: User
+"""
+try:
+    get_user_model = lambda: settings.AUTH_USER_MODEL
+except:
+    try:
+        from django.contrib.auth import get_user_model
+    except ImportError:
+        from django.contrib.auth.models import User
+        get_user_model = lambda: User
+
 
 # get_username_field
 if django.VERSION >= (1, 5):
@@ -260,16 +272,24 @@ def create_permissions(*args, **kwargs):
     return original_create_permissions(*args, **kwargs)
 
 # Requires django < 1.5 or python >= 2.6
-try:
-    import json as simplejson
-except:
+if django.VERSION < (1,5):
     from django.utils import simplejson
+else:
+    import json as simplejson
 
+
+### Undocumented ###
+
+try:
+    from django.template import VariableNode
+except:
+    from django.template.base import VariableNode
+    
+#the tests will try to import these
 __all__ = [ 
     'get_model_name',
     'get_user_model',
     'get_username_field',
-    'get_indent',
     'import_string',
     'user_model_label',
     'url',
@@ -277,6 +297,7 @@ __all__ = [
     'include',
     'handler404',
     'handler500',
+    'get_ident',
    # 'mock',
    # 'unittest',
     'urlparse', 
@@ -295,5 +316,7 @@ __all__ = [
     'clean_manytomany_helptext', 
     'smart_text',
     'force_text',
-    'simplejson'
+    'simplejson',
+    'import_module',
+    'VariableNode',
 ]
