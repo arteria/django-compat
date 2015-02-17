@@ -290,7 +290,6 @@ __all__ = [
     'get_model_name',
     'get_user_model',
     'get_username_field',
-    #'get_indent',
     'import_string',
     'user_model_label',
     'url',
