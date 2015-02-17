@@ -1,10 +1,11 @@
 django-compat
 =============
+[![Build Status](https://travis-ci.org/arteria/django-compat.svg?branch=master)](https://travis-ci.org/arteria/django-compat)
 
 For- and backwards compatibility layer for Django 1.4.x to 1.8.x
 
 Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). 
-Let's see where it goes. 
+Let's see where it goes.
 
 # Compatible objects
 
