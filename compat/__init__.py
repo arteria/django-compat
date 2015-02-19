@@ -152,21 +152,9 @@ except ImportError:
 
 user_model_label = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
-"""
-try:
-    from django.contrib.auth import get_user_model
-except ImportError:
-    from django.contrib.auth.models import User
-    get_user_model = lambda: User
-"""
-try:
-    get_user_model = lambda: settings.AUTH_USER_MODEL
-except:
-    try:
-        from django.contrib.auth import get_user_model
-    except ImportError:
-        from django.contrib.auth.models import User
-        get_user_model = lambda: User
+
+
+
 
 
 # get_username_field
@@ -176,6 +164,12 @@ if django.VERSION >= (1, 5):
 else:
     def get_username_field():
             return 'username'
+
+try:
+    from django.contrib.auth import get_user_model
+except ImportError:
+    from django.contrib.auth.models import User
+    get_user_model = lambda: User
             
             
 def get_user_model_path():
