@@ -1,10 +1,11 @@
 django-compat
 =============
+[![Build Status](https://travis-ci.org/arteria/django-compat.svg?branch=master)](https://travis-ci.org/arteria/django-compat)
 
-For- and backwards compatibility layer for Django 1.4.x to 1.8-alpha
+For- and backwards compatibility layer for Django 1.4.x to 1.8.x
 
 Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). 
-Let's see where it goes. 
+Let's see where it goes.
 
 # Compatible objects
 
@@ -12,13 +13,14 @@ Let's see where it goes.
 * clean_manytomany_helptext
 * EmailValidator
 * force_text
-* get_indent
+* get_ident
 * get_model_name
 * get_user_model
 * get_username_field
 * handler404
 * handler500
 * HttpResponseBase
+* import_module
 * import_string
 * include
 * JsonResponse
@@ -35,6 +37,7 @@ Let's see where it goes.
 * urlunparse
 * URLValidator
 * user_model_label
+* VariableNode
 * View
 
 # Manual adjustments

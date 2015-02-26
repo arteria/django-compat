@@ -5,16 +5,21 @@ import sys
 import inspect
 import django
 
-from django.conf import settings 
-from django.utils.importlib import import_module
+from django.conf import settings
 
 from django.core.exceptions import ImproperlyConfigured
+
+try:
+    from importlib import import_module
+except ImportError:  # Fallback for Python 2.6 & Django < 1.7
+    from django.utils.importlib import import_module
+
 try:
     # django 1.4.2+ , https://docs.djangoproject.com/en/1.5/topics/python3/#philosophy
     from django.utils import six
 except ImportError:
     import six
-    
+
 # get_indent
 if six.PY3:
     from threading import get_ident
@@ -39,8 +44,8 @@ try:
     from django.utils.encoding import force_text
 except ImportError:
     from django.utils.encoding import force_unicode as force_text
-    
-    
+
+
 
 if django.VERSION >= (1, 6):
     def clean_manytomany_helptext(text):
@@ -52,8 +57,8 @@ else:
         if text.endswith(' Hold down "Control", or "Command" on a Mac, to select more than one.'):
             text = text[:-69]
         return text
-        
-        
+
+
 
 # cStringIO only if it's available, otherwise StringIO
 try:
@@ -70,7 +75,7 @@ def get_model_name(model_cls):
     except AttributeError:
         # < 1.6 used module_name instead of model_name
         return model_cls._meta.module_name
-        
+
 
 # View._allowed_methods only present from 1.5 onwards
 if django.VERSION >= (1, 5):
@@ -124,7 +129,7 @@ except ImportError:
         klass.__unicode__ = klass.__str__
         klass.__str__ = lambda self: self.__unicode__().encode('utf-8')
         return klass
-        
+
 try:
     import unittest2 as unittest
 except ImportError:
@@ -147,11 +152,10 @@ except ImportError:
 
 user_model_label = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
-try:
-    from django.contrib.auth import get_user_model
-except ImportError:
-    from django.contrib.auth.models import User
-    get_user_model = lambda: User
+
+
+
+
 
 # get_username_field
 if django.VERSION >= (1, 5):
@@ -160,8 +164,14 @@ if django.VERSION >= (1, 5):
 else:
     def get_username_field():
             return 'username'
-            
-            
+
+try:
+    from django.contrib.auth import get_user_model
+except ImportError:
+    from django.contrib.auth.models import User
+    get_user_model = lambda: User
+
+
 def get_user_model_path():
     """
     Returns 'app_label.ModelName' for User model. Basically if
@@ -215,8 +225,8 @@ try:
     from django.http.response import HttpResponseBase
 except ImportError:
     from django.http import HttpResponse as HttpResponseBase
-    
-    
+
+
 # Python 3
 try:
     unicode = unicode # pyflakes:ignore
@@ -226,7 +236,7 @@ except NameError:
     basestring = unicode = str = str
 
 
-# urlparse in python3 has been renamed to urllib.parse 
+# urlparse in python3 has been renamed to urllib.parse
 try:
     from urlparse import urlparse, parse_qs, urlunparse
 except ImportError:
@@ -236,18 +246,18 @@ try:
     from urllib import urlencode, unquote_plus
 except ImportError:
     from urllib.parse import urlencode, unquote_plus
-    
-    
-    
+
+
+
 # Django 1.7 compatibility
 try:
     from django.http import JsonResponse
 except:
     from .json_response import JsonResponse
-    
+
 # create_permission API changed: skip the create_models (second
 # positional argument) if we have django 1.7+ and 2+ positional
-# arguments with the second one being a list/tuple 
+# arguments with the second one being a list/tuple
 def create_permissions(*args, **kwargs):
     from django.contrib.auth.management import create_permissions as original_create_permissions
     if django.get_version().split('.')[:2] >= ['1','7'] and \
@@ -256,10 +266,18 @@ def create_permissions(*args, **kwargs):
     return original_create_permissions(*args, **kwargs)
 
 # Requires django < 1.5 or python >= 2.6
-try:
-    import json as simplejson
-except:
+if django.VERSION < (1,5):
     from django.utils import simplejson
+else:
+    import json as simplejson
+
+
+### Undocumented ###
+
+try:
+    from django.template import VariableNode
+except:
+    from django.template.base import VariableNode
 
 # slugify template filter is available as a standard python function at django.utils.text since django 1.5
 try:
@@ -267,11 +285,12 @@ try:
 except:
     from django.template.defaultfilters import slugify
 
-__all__ = [ 
+
+#the tests will try to import these
+__all__ = [
     'get_model_name',
     'get_user_model',
     'get_username_field',
-    'get_indent',
     'import_string',
     'user_model_label',
     'url',
@@ -279,24 +298,27 @@ __all__ = [
     'include',
     'handler404',
     'handler500',
+    'get_ident',
     # 'mock',
     # 'unittest',
-    'urlparse', 
-    'parse_qs', 
+    'urlparse',
+    'parse_qs',
     'urlunparse',
-    'urlencode', 
+    'urlencode',
     'unquote_plus',
     'JsonResponse',
     'HttpResponseBase',
     'python_2_unicode_compatible',
     'URLValidator',
     'EmailValidator',
-    'View', 
+    'View',
     'StringIO',
     'BytesIO',
-    'clean_manytomany_helptext', 
+    'clean_manytomany_helptext',
     'smart_text',
     'force_text',
     'simplejson',
+    'import_module',
+    'VariableNode',
     'slugify',
 ]
