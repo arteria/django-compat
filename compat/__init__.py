@@ -261,6 +261,12 @@ try:
 except:
     from django.utils import simplejson
 
+# slugify template filter is available as a standard python function at django.utils.text since django 1.5
+try:
+    from django.utils.text import slugify
+except:
+    from django.template.defaultfilters import slugify
+
 __all__ = [ 
     'get_model_name',
     'get_user_model',
@@ -273,8 +279,8 @@ __all__ = [
     'include',
     'handler404',
     'handler500',
-   # 'mock',
-   # 'unittest',
+    # 'mock',
+    # 'unittest',
     'urlparse', 
     'parse_qs', 
     'urlunparse',
@@ -291,5 +297,6 @@ __all__ = [
     'clean_manytomany_helptext', 
     'smart_text',
     'force_text',
-    'simplejson'
+    'simplejson',
+    'slugify',
 ]
