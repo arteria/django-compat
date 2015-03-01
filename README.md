@@ -7,6 +7,22 @@ For- and backwards compatibility layer for Django 1.4.x to 1.8.x
 Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). 
 Let's see where it goes.
 
+# How to use django-compat
+
+Install compat from the [PyPI](https://pypi.python.org/pypi/django-compat) or download and install manually. All relevant  releases are listed [here under releases](https://github.com/arteria/django-compat/releases).
+
+Using one of the compatible objects is easy. For example
+
+	from compat import patterns, url
+
+	urlpatterns = patterns('ABC.views',
+    		url(r'^abc/$', 'abc', name='abc-link'),
+   	...
+	
+See a full example [here](https://github.com/arteria/django-hijack/blob/4966d8865e7e829a562ff2724771628c6590f841/hijack/urls.py#L1).
+
+
+
 # Compatible objects
 
 * BytesIO
