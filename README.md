@@ -29,6 +29,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * clean_manytomany_helptext
 * EmailValidator
 * force_text
+* GenericForeignKey
 * get_ident
 * get_model_name
 * get_user_model
@@ -44,6 +45,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * patterns
 * python_2_unicode_compatible
 * simplejson
+* slugify
 * smart_text
 * StringIO
 * unquote_plus
