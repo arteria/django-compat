@@ -153,10 +153,6 @@ except ImportError:
 user_model_label = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
 
-
-
-
-
 # get_username_field
 if django.VERSION >= (1, 5):
     def get_username_field():
@@ -285,6 +281,11 @@ try:
 except:
     from django.template.defaultfilters import slugify
 
+try:
+    from django.contrib.contenttypes.fields import GenericForeignKey
+except ImportError:  # django < 1.7
+    from django.contrib.contenttypes.generic import GenericForeignKey
+
 
 #the tests will try to import these
 __all__ = [
@@ -321,4 +322,5 @@ __all__ = [
     'import_module',
     'VariableNode',
     'slugify',
+    'GenericForeignKey',
 ]
