@@ -244,13 +244,6 @@ except ImportError:
     from urllib.parse import urlencode, unquote_plus
 
 
-
-# Django 1.7 compatibility
-try:
-    from django.http import JsonResponse
-except:
-    from .json_response import JsonResponse
-
 # create_permission API changed: skip the create_models (second
 # positional argument) if we have django 1.7+ and 2+ positional
 # arguments with the second one being a list/tuple
@@ -266,6 +259,13 @@ if django.VERSION < (1,5):
     from django.utils import simplejson
 else:
     import json as simplejson
+
+
+# Django 1.7 compatibility
+try:
+    from django.http import JsonResponse
+except:
+    from .json_response import JsonResponse
 
 
 ### Undocumented ###
