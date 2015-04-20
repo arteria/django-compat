@@ -1,10 +1,14 @@
 """
-A subclass of HttpResponse useful as a shortcut in views; it chooses the correct JSON serializer based on whether or not it is passed a QuerySet.
+A subclass of HttpResponse useful as a shortcut in views;
+it chooses the correct JSON serializer based on whether or not it is passed a QuerySet.
 Source: https://djangosnippets.org/snippets/154/
 """
 from django.core.serializers import json, serialize
 from django.db.models.query import QuerySet
 from django.http import HttpResponse
+
+from compat import simplejson
+
 
 class JsonResponse(HttpResponse):
     def __init__(self, object):
