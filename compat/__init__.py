@@ -2,12 +2,9 @@
 from __future__ import unicode_literals
 
 import sys
-import inspect
 import django
 
 from django.conf import settings
-
-from django.core.exceptions import ImproperlyConfigured
 
 try:
     from importlib import import_module
@@ -20,6 +17,7 @@ try:
 except ImportError:
     import six
 
+
 # get_indent
 if six.PY3:
     from threading import get_ident
@@ -29,8 +27,7 @@ else:
 try:
     from django.conf.urls import url, patterns, include, handler404, handler500
 except ImportError:
-    from django.conf.urls.defaults import url, patterns, include, handler404, handler500 # pyflakes:ignore
-
+    from django.conf.urls.defaults import url, patterns, include, handler404, handler500  # pyflakes:ignore
 
 
 # Handle django.utils.encoding rename in 1.5 onwards.
@@ -46,7 +43,6 @@ except ImportError:
     from django.utils.encoding import force_unicode as force_text
 
 
-
 if django.VERSION >= (1, 6):
     def clean_manytomany_helptext(text):
         return text
@@ -57,7 +53,6 @@ else:
         if text.endswith(' Hold down "Control", or "Command" on a Mac, to select more than one.'):
             text = text[:-69]
         return text
-
 
 
 # cStringIO only if it's available, otherwise StringIO
@@ -88,7 +83,6 @@ else:
             return [m.upper() for m in self.http_method_names if hasattr(self, m)]
 
 
-
 # URLValidator only accepts `message` in 1.6+
 if django.VERSION >= (1, 6):
     from django.core.validators import URLValidator
@@ -99,6 +93,7 @@ else:
         def __init__(self, *args, **kwargs):
             self.message = kwargs.pop('message', self.message)
             super(URLValidator, self).__init__(*args, **kwargs)
+
 
 # EmailValidator requires explicit regex prior to 1.6+
 if django.VERSION >= (1, 6):
@@ -138,18 +133,18 @@ try:
     from unittest import mock  # Since Python 3.3 mock is is in stdlib
 except ImportError:
     try:
-        import mock # pyflakes:ignore
+        import mock  # pyflakes:ignore
     except ImportError:
         # mock is used for tests only however it is hard to check if user is
         # running tests or production code so we fail silently here; mock is
         # still required for tests at setup.py (See PR #193)
         pass
 
+
 # Django 1.5 compatibility utilities, providing support for custom User models.
 # Since get_user_model() causes a circular import if called when app models are
 # being loaded, the user_model_label should be used when possible, with calls
 # to get_user_model deferred to execution time
-
 user_model_label = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
 
@@ -176,6 +171,7 @@ def get_user_model_path():
     """
     return getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
+
 def get_user_permission_full_codename(perm):
     """
     Returns 'app_label.<perm>_<usermodulename>'. If standard ``auth.User`` is
@@ -184,6 +180,7 @@ def get_user_permission_full_codename(perm):
     """
     User = get_user_model()
     return '%s.%s_%s' % (User._meta.app_label, perm, User._meta.module_name)
+
 
 def get_user_permission_codename(perm):
     """
@@ -225,9 +222,9 @@ except ImportError:
 
 # Python 3
 try:
-    unicode = unicode # pyflakes:ignore
-    basestring = basestring # pyflakes:ignore
-    str = str # pyflakes:ignore
+    unicode = unicode  # pyflakes:ignore
+    basestring = basestring  # pyflakes:ignore
+    str = str  # pyflakes:ignore
 except NameError:
     basestring = unicode = str = str
 
@@ -244,18 +241,18 @@ except ImportError:
     from urllib.parse import urlencode, unquote_plus
 
 
-# create_permission API changed: skip the create_models (second
-# positional argument) if we have django 1.7+ and 2+ positional
-# arguments with the second one being a list/tuple
 def create_permissions(*args, **kwargs):
+    # create_permission API changed: skip the create_models (second
+    # positional argument) if we have django 1.7+ and 2+ positional
+    # arguments with the second one being a list/tuple
     from django.contrib.auth.management import create_permissions as original_create_permissions
-    if django.get_version().split('.')[:2] >= ['1','7'] and \
-        len(args) > 1 and isinstance(args[1], (list, tuple)):
+    if django.VERSION < (1, 7) and len(args) > 1 and isinstance(args[1], (list, tuple)):
         args = args[:1] + args[2:]
     return original_create_permissions(*args, **kwargs)
 
+
 # Requires django < 1.5 or python >= 2.6
-if django.VERSION < (1,5):
+if django.VERSION < (1, 5):
     from django.utils import simplejson
 else:
     import json as simplejson
@@ -287,7 +284,7 @@ except ImportError:  # django < 1.7
     from django.contrib.contenttypes.generic import GenericForeignKey
 
 
-#the tests will try to import these
+# the tests will try to import these
 __all__ = [
     'get_model_name',
     'get_user_model',
