@@ -2,12 +2,9 @@
 from __future__ import unicode_literals
 
 import sys
-import inspect
 import django
 
-from django.conf import settings 
-
-from django.core.exceptions import ImproperlyConfigured
+from django.conf import settings
 
 try:
     from importlib import import_module
@@ -19,7 +16,8 @@ try:
     from django.utils import six
 except ImportError:
     import six
-    
+
+
 # get_indent
 if six.PY3:
     from threading import get_ident
@@ -29,8 +27,7 @@ else:
 try:
     from django.conf.urls import url, patterns, include, handler404, handler500
 except ImportError:
-    from django.conf.urls.defaults import url, patterns, include, handler404, handler500 # pyflakes:ignore
-
+    from django.conf.urls.defaults import url, patterns, include, handler404, handler500  # pyflakes:ignore
 
 
 # Handle django.utils.encoding rename in 1.5 onwards.
@@ -44,8 +41,7 @@ try:
     from django.utils.encoding import force_text
 except ImportError:
     from django.utils.encoding import force_unicode as force_text
-    
-    
+
 
 if django.VERSION >= (1, 6):
     def clean_manytomany_helptext(text):
@@ -57,8 +53,7 @@ else:
         if text.endswith(' Hold down "Control", or "Command" on a Mac, to select more than one.'):
             text = text[:-69]
         return text
-        
-        
+
 
 # cStringIO only if it's available, otherwise StringIO
 try:
@@ -75,7 +70,7 @@ def get_model_name(model_cls):
     except AttributeError:
         # < 1.6 used module_name instead of model_name
         return model_cls._meta.module_name
-        
+
 
 # View._allowed_methods only present from 1.5 onwards
 if django.VERSION >= (1, 5):
@@ -88,7 +83,6 @@ else:
             return [m.upper() for m in self.http_method_names if hasattr(self, m)]
 
 
-
 # URLValidator only accepts `message` in 1.6+
 if django.VERSION >= (1, 6):
     from django.core.validators import URLValidator
@@ -99,6 +93,7 @@ else:
         def __init__(self, *args, **kwargs):
             self.message = kwargs.pop('message', self.message)
             super(URLValidator, self).__init__(*args, **kwargs)
+
 
 # EmailValidator requires explicit regex prior to 1.6+
 if django.VERSION >= (1, 6):
@@ -129,7 +124,7 @@ except ImportError:
         klass.__unicode__ = klass.__str__
         klass.__str__ = lambda self: self.__unicode__().encode('utf-8')
         return klass
-        
+
 try:
     import unittest2 as unittest
 except ImportError:
@@ -138,23 +133,19 @@ try:
     from unittest import mock  # Since Python 3.3 mock is is in stdlib
 except ImportError:
     try:
-        import mock # pyflakes:ignore
+        import mock  # pyflakes:ignore
     except ImportError:
         # mock is used for tests only however it is hard to check if user is
         # running tests or production code so we fail silently here; mock is
         # still required for tests at setup.py (See PR #193)
         pass
 
+
 # Django 1.5 compatibility utilities, providing support for custom User models.
 # Since get_user_model() causes a circular import if called when app models are
 # being loaded, the user_model_label should be used when possible, with calls
 # to get_user_model deferred to execution time
-
 user_model_label = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
-
-
-
-
 
 
 # get_username_field
@@ -170,8 +161,8 @@ try:
 except ImportError:
     from django.contrib.auth.models import User
     get_user_model = lambda: User
-            
-            
+
+
 def get_user_model_path():
     """
     Returns 'app_label.ModelName' for User model. Basically if
@@ -179,6 +170,7 @@ def get_user_model_path():
     ``auth.User`` is returned.
     """
     return getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
+
 
 def get_user_permission_full_codename(perm):
     """
@@ -188,6 +180,7 @@ def get_user_permission_full_codename(perm):
     """
     User = get_user_model()
     return '%s.%s_%s' % (User._meta.app_label, perm, User._meta.module_name)
+
 
 def get_user_permission_codename(perm):
     """
@@ -225,18 +218,18 @@ try:
     from django.http.response import HttpResponseBase
 except ImportError:
     from django.http import HttpResponse as HttpResponseBase
-    
-    
+
+
 # Python 3
 try:
-    unicode = unicode # pyflakes:ignore
-    basestring = basestring # pyflakes:ignore
-    str = str # pyflakes:ignore
+    unicode = unicode  # pyflakes:ignore
+    basestring = basestring  # pyflakes:ignore
+    str = str  # pyflakes:ignore
 except NameError:
     basestring = unicode = str = str
 
 
-# urlparse in python3 has been renamed to urllib.parse 
+# urlparse in python3 has been renamed to urllib.parse
 try:
     from urlparse import urlparse, parse_qs, urlunparse
 except ImportError:
@@ -246,30 +239,30 @@ try:
     from urllib import urlencode, unquote_plus
 except ImportError:
     from urllib.parse import urlencode, unquote_plus
-    
-    
-    
+
+
+def create_permissions(*args, **kwargs):
+    # create_permission API changed: skip the create_models (second
+    # positional argument) if we have django 1.7+ and 2+ positional
+    # arguments with the second one being a list/tuple
+    from django.contrib.auth.management import create_permissions as original_create_permissions
+    if django.VERSION < (1, 7) and len(args) > 1 and isinstance(args[1], (list, tuple)):
+        args = args[:1] + args[2:]
+    return original_create_permissions(*args, **kwargs)
+
+
+# Requires django < 1.5 or python >= 2.6
+if django.VERSION < (1, 5):
+    from django.utils import simplejson
+else:
+    import json as simplejson
+
+
 # Django 1.7 compatibility
 try:
     from django.http import JsonResponse
 except:
     from .json_response import JsonResponse
-    
-# create_permission API changed: skip the create_models (second
-# positional argument) if we have django 1.7+ and 2+ positional
-# arguments with the second one being a list/tuple 
-def create_permissions(*args, **kwargs):
-    from django.contrib.auth.management import create_permissions as original_create_permissions
-    if django.get_version().split('.')[:2] >= ['1','7'] and \
-        len(args) > 1 and isinstance(args[1], (list, tuple)):
-        args = args[:1] + args[2:]
-    return original_create_permissions(*args, **kwargs)
-
-# Requires django < 1.5 or python >= 2.6
-if django.VERSION < (1,5):
-    from django.utils import simplejson
-else:
-    import json as simplejson
 
 
 ### Undocumented ###
@@ -278,9 +271,21 @@ try:
     from django.template import VariableNode
 except:
     from django.template.base import VariableNode
-    
-#the tests will try to import these
-__all__ = [ 
+
+# slugify template filter is available as a standard python function at django.utils.text since django 1.5
+try:
+    from django.utils.text import slugify
+except:
+    from django.template.defaultfilters import slugify
+
+try:
+    from django.contrib.contenttypes.fields import GenericForeignKey
+except ImportError:  # django < 1.7
+    from django.contrib.contenttypes.generic import GenericForeignKey
+
+
+# the tests will try to import these
+__all__ = [
     'get_model_name',
     'get_user_model',
     'get_username_field',
@@ -292,25 +297,27 @@ __all__ = [
     'handler404',
     'handler500',
     'get_ident',
-   # 'mock',
-   # 'unittest',
-    'urlparse', 
-    'parse_qs', 
+    # 'mock',
+    # 'unittest',
+    'urlparse',
+    'parse_qs',
     'urlunparse',
-    'urlencode', 
+    'urlencode',
     'unquote_plus',
     'JsonResponse',
     'HttpResponseBase',
     'python_2_unicode_compatible',
     'URLValidator',
     'EmailValidator',
-    'View', 
+    'View',
     'StringIO',
     'BytesIO',
-    'clean_manytomany_helptext', 
+    'clean_manytomany_helptext',
     'smart_text',
     'force_text',
     'simplejson',
     'import_module',
     'VariableNode',
+    'slugify',
+    'GenericForeignKey',
 ]
