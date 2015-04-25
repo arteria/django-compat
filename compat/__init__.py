@@ -256,6 +256,11 @@ if django.VERSION < (1, 5):
     from django.utils import simplejson
 else:
     import json as simplejson
+    
+try:
+    from collections import OrderedDict as SortedDict
+except ImportError:
+    from django.utils.datastructures import SortedDict
 
 
 # Django 1.7 compatibility
