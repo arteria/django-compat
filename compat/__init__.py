@@ -154,7 +154,7 @@ if django.VERSION >= (1, 5):
         return get_user_model().USERNAME_FIELD
 else:
     def get_username_field():
-            return 'username'
+        return 'username'
 
 try:
     from django.contrib.auth import get_user_model
