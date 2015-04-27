@@ -289,7 +289,7 @@ except ImportError:  # django < 1.7
     from django.contrib.contenttypes.generic import GenericForeignKey
 
 # commit_on_success replaced by atomic in Django >=1.8
-atomic_decorator = getattr(django.db.transaction, 'atomic', None) or getattr(django.db.transaction, 'commit_on_success')
+atomic = commit_on_success = getattr(django.db.transaction, 'atomic', None) or getattr(django.db.transaction, 'commit_on_success')
 
 # the tests will try to import these
 __all__ = [
@@ -328,5 +328,5 @@ __all__ = [
     'slugify',
     'GenericForeignKey',
     'SortedDict',
-    'atomic_decorator',
+    'atomic', 'commit_on_success', # alias
 ]
