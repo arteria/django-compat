@@ -47,6 +47,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * simplejson
 * slugify
 * smart_text
+* SortedDict
 * StringIO
 * unquote_plus
 * url
