@@ -325,4 +325,5 @@ __all__ = [
     'VariableNode',
     'slugify',
     'GenericForeignKey',
+    'SortedDict',
 ]
