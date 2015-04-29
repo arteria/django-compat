@@ -25,6 +25,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 
 # Compatible objects
 
+* atomic or commit_on_success (commit_on_success replaced by atomic in Django >=1.8)
 * BytesIO
 * clean_manytomany_helptext
 * EmailValidator
@@ -47,6 +48,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * simplejson
 * slugify
 * smart_text
+* SortedDict
 * StringIO
 * unquote_plus
 * url

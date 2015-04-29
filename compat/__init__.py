@@ -154,7 +154,7 @@ if django.VERSION >= (1, 5):
         return get_user_model().USERNAME_FIELD
 else:
     def get_username_field():
-            return 'username'
+        return 'username'
 
 try:
     from django.contrib.auth import get_user_model
@@ -256,6 +256,11 @@ if django.VERSION < (1, 5):
     from django.utils import simplejson
 else:
     import json as simplejson
+    
+try:
+    from collections import OrderedDict as SortedDict
+except ImportError:
+    from django.utils.datastructures import SortedDict
 
 
 # Django 1.7 compatibility
@@ -283,6 +288,8 @@ try:
 except ImportError:  # django < 1.7
     from django.contrib.contenttypes.generic import GenericForeignKey
 
+# commit_on_success replaced by atomic in Django >=1.8
+atomic = commit_on_success = getattr(django.db.transaction, 'atomic', None) or getattr(django.db.transaction, 'commit_on_success')
 
 # the tests will try to import these
 __all__ = [
@@ -320,4 +327,6 @@ __all__ = [
     'VariableNode',
     'slugify',
     'GenericForeignKey',
+    'SortedDict',
+    'atomic', 'commit_on_success', # alias
 ]
