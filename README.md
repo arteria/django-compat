@@ -28,8 +28,10 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * atomic or commit_on_success (commit_on_success replaced by atomic in Django >=1.8)
 * BytesIO
 * clean_manytomany_helptext
+* conditional_escape
 * EmailValidator
 * force_text
+* format_html
 * GenericForeignKey
 * get_ident
 * get_model_name
