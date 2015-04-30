@@ -276,15 +276,7 @@ try:
     from django.utils.html import format_html, conditional_escape
 except ImportError:
     # support django < 1.5. Taken from django.utils.html
-    from django.utils import six
-    def conditional_escape(text):
-        """
-        Similar to escape(), except that it doesn't operate on pre-escaped strings.
-        """
-        if isinstance(text, SafeData):
-            return text
-        else:
-            return escape(text)
+    from django.utils import html
 
     def format_html(format_string, *args, **kwargs):
         """
@@ -292,10 +284,16 @@ except ImportError:
         and calls 'mark_safe' on the result. This function should be used instead
         of str.format or % interpolation to build up small HTML fragments.
         """
-        args_safe = map(conditional_escape, args)
-        kwargs_safe = dict([(k, conditional_escape(v)) for (k, v) in
+        args_safe = map(html.conditional_escape, args)
+        kwargs_safe = dict([(k, html.conditional_escape(v)) for (k, v) in
                             six.iteritems(kwargs)])
-        return mark_safe(format_string.format(*args_safe, **kwargs_safe))
+        return html.mark_safe(format_string.format(*args_safe, **kwargs_safe))
+
+
+try:
+    from django.shortcuts import resolve_url
+except ImportError:  # django < 1.5
+    from .shortcuts import resolve_url
 
 
 try:
@@ -366,5 +364,4 @@ __all__ = [
     'commit_on_success', # alias
     'format_html',
     'resolve_url',
-    'conditional_escape',
 ]
