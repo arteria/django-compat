@@ -296,6 +296,12 @@ except ImportError:  # django < 1.5
     from .shortcuts import resolve_url
 
 
+try:
+    from django.shortcuts import resolve_url
+except ImportError:  # django < 1.5
+    from .shortcuts import resolve_url
+
+
 ### Undocumented ###
 
 try:
