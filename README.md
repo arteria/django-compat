@@ -4,8 +4,21 @@ django-compat
 
 For- and backwards compatibility layer for Django 1.4.x to 1.8.x
 
-Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). 
-Let's see where it goes.
+~~Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). Let's see where it goes.~~
+
+What startet as an experiment based on [this discussion on reddit](http://redd.it/2jrr4l) has proven to be true in real life . 
+
+
+# Who uses django-compat
+
+A popular open source reusable app that uses django-compat is [django-hijack](https://github.com/arteria/django-hijack/).   
+Want to have yours listed here? Send us a PR. 
+
+# Why use  django-compat
+
+* Be able to use the LTS versions of Django and support newer versions in your app
+* Use features from newer Django versions in an old one
+* Manage and master the gap between different framework versions
 
 # How to use django-compat
 
