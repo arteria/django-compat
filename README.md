@@ -61,6 +61,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * user_model_label
 * VariableNode
 * View
+* resolve_url
 
 # Manual adjustments
 

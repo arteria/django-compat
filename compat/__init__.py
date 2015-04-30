@@ -290,6 +290,12 @@ except ImportError:
         return html.mark_safe(format_string.format(*args_safe, **kwargs_safe))
 
 
+try:
+    from django.shortcuts import resolve_url
+except ImportError:  # django < 1.5
+    from .shortcuts import resolve_url
+
+
 ### Undocumented ###
 
 try:
@@ -351,4 +357,5 @@ __all__ = [
     'atomic',
     'commit_on_success', # alias
     'format_html',
+    'resolve_url',
 ]

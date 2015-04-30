@@ -36,6 +36,7 @@ def setup():
             INSTALLED_APPS=INSTALLED_APPS,
             DATABASES=DATABASES,
             TEST_RUNNER=TEST_RUNNER,
+            ROOT_URLCONF='compat.tests.urls'
         )
 
 
