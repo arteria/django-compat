@@ -301,6 +301,14 @@ try:
 except ImportError:  # django < 1.5
     from .shortcuts import resolve_url
 
+# autocommit
+
+try:
+    from django.db.transaction import set_autocommit
+    autocommit = set_autocommit
+except ImportError:
+    from django.db.transaction import autocommit
+
 
 ### Undocumented ###
 
@@ -322,6 +330,7 @@ except ImportError:  # django < 1.7
 
 # commit_on_success replaced by atomic in Django >=1.8
 atomic = commit_on_success = getattr(django.db.transaction, 'atomic', None) or getattr(django.db.transaction, 'commit_on_success')
+
 
 # the tests will try to import these
 __all__ = [
