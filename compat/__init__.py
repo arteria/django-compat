@@ -6,6 +6,20 @@ import django
 
 from django.conf import settings
 
+from django.db.models import Manager
+
+## Monkey patch:
+
+try:
+    Manager.get_query_set = Manager.get_queryset
+except ImportError:
+    Manager.get_queryset = Manager.get_query_set
+
+
+
+
+
+
 try:
     from importlib import import_module
 except ImportError:  # Fallback for Python 2.6 & Django < 1.7
@@ -374,4 +388,6 @@ __all__ = [
     'format_html',
     'resolve_url',
     'autocommit',
+    'get_query_set',
+    'get_queryset',
 ]
