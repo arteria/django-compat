@@ -373,4 +373,5 @@ __all__ = [
     'commit_on_success', # alias
     'format_html',
     'resolve_url',
+    'autocommit',
 ]
