@@ -6,6 +6,8 @@ from django.core.urlresolvers import NoReverseMatch, reverse_lazy
 from compat import resolve_url
 from compat import six
 
+import compat
+
 from .models import UnimportantThing
 
 class CompatTests(TestCase):
@@ -117,3 +119,36 @@ class CompatTests(TestCase):
         """
         with self.assertRaises(NoReverseMatch):
             resolve_url(lambda: 'asdf')
+
+
+from django.test import TransactionTestCase
+
+class AtomicTests(TransactionTestCase):
+    """
+    Tests for the atomic decorator and context manager.
+    The tests make assertions on internal attributes because there isn't a
+    robust way to ask the database for its current transaction state.
+    Since the decorator syntax is converted into a context manager (see the
+    implementation), there are only a few basic tests with the decorator
+    syntax and the bulk of the tests use the context manager syntax.
+    """
+
+    available_apps = ['transactions']
+
+
+from unittest import skipIf
+from django.db import connection
+
+#@skipIf(connection.features.autocommits_when_autocommit_is_off,
+#        "This test requires a non-autocommit mode that doesn't autocommit.")
+class AtomicWithoutAutocommitTests(AtomicTests):
+    """All basic tests for atomic should also pass when autocommit is turned off."""
+
+    def setUp(self):
+        compat.autocommit(False)
+
+    def tearDown(self):
+        # The tests access the database after exercising 'atomic', initiating
+        # a transaction ; a rollback is required before restoring autocommit.
+        compat.rollback()
+        compat.autocommit(True)
