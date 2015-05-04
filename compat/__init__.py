@@ -12,7 +12,7 @@ from django.db.models import Manager
 
 try:
     Manager.get_query_set = Manager.get_queryset
-except ImportError:
+except AttributeError:
     Manager.get_queryset = Manager.get_query_set
 
 
@@ -315,14 +315,6 @@ try:
 except ImportError:  # django < 1.5
     from .shortcuts import resolve_url
 
-# autocommit
-
-try:
-    from django.db.transaction import set_autocommit
-    autocommit = set_autocommit
-except ImportError:
-    from django.db.transaction import autocommit
-
 
 ### Undocumented ###
 
@@ -387,7 +379,4 @@ __all__ = [
     'commit_on_success', # alias
     'format_html',
     'resolve_url',
-    'autocommit',
-    'get_query_set',
-    'get_queryset',
 ]
