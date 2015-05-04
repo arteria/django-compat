@@ -6,6 +6,20 @@ import django
 
 from django.conf import settings
 
+from django.db.models import Manager
+
+## Monkey patch:
+
+try:
+    Manager.get_query_set = Manager.get_queryset
+except AttributeError:
+    Manager.get_queryset = Manager.get_query_set
+
+
+
+
+
+
 try:
     from importlib import import_module
 except ImportError:  # Fallback for Python 2.6 & Django < 1.7
@@ -322,6 +336,7 @@ except ImportError:  # django < 1.7
 
 # commit_on_success replaced by atomic in Django >=1.8
 atomic = commit_on_success = getattr(django.db.transaction, 'atomic', None) or getattr(django.db.transaction, 'commit_on_success')
+
 
 # the tests will try to import these
 __all__ = [

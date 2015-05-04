@@ -6,6 +6,8 @@ from django.core.urlresolvers import NoReverseMatch, reverse_lazy
 from compat import resolve_url
 from compat import six
 
+import compat
+
 from .models import UnimportantThing
 
 class CompatTests(TestCase):

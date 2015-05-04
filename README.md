@@ -48,6 +48,8 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * GenericForeignKey
 * get_ident
 * get_model_name
+* get_query_set
+* get_queryset
 * get_user_model
 * get_username_field
 * handler404
