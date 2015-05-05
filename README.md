@@ -11,7 +11,7 @@ What startet as an experiment based on [this discussion on reddit](http://redd.i
 
 # Who uses django-compat
 
-A popular open source reusable app that uses django-compat is [django-hijack](https://github.com/arteria/django-hijack/).   
+Two popular examples of open source reusable app that uses django-compat are [django-hijack](https://github.com/arteria/django-hijack/) and [django-background-tasks](https://github.com/arteria/django-background-tasks).   
 Want to have yours listed here? Send us a PR. 
 
 # Why use  django-compat
