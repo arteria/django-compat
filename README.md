@@ -135,6 +135,7 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 - [ ] https://github.com/kennethreitz/requests/blob/master/requests/compat.py
 - [ ] https://github.com/mitsuhiko/jinja2/blob/master/jinja2/_compat.py
 - [ ] https://github.com/jaraco/setuptools/blob/master/setuptools/compat.py 
+- [ ] https://github.com/mariocesar/sorl-thumbnail/blob/master/sorl/thumbnail/compat.py
 
 
  
