@@ -4,7 +4,7 @@ django-compat
 [![Build Status](https://travis-ci.org/arteria/django-compat.svg?branch=master)](https://travis-ci.org/arteria/django-compat)
 [![Stories in Ready](https://badge.waffle.io/arteria/django-compat.png?label=ready&title=Ready)](https://waffle.io/arteria/django-compat)
 
-For- and backwards compatibility layer for Django 1.4.x to 1.8.x
+For- and backwards compatibility layer for Django 1.4, 1.7 and 1.8
 
 ~~Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). Let's see where it goes.~~
 
