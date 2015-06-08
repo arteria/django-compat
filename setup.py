@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-import os
+import os, sys
 from setuptools import setup
 from setuptools import find_packages
 
@@ -16,23 +16,25 @@ def get_path(fname):
 def read(fname):
     return open(get_path(fname)).read()
 
+if sys.argv[-1] == 'generate-readme':
+    try:
+        import pypandoc
+        long_description = pypandoc.convert(get_path('README.md'), 'rst')
+        long_description = long_description.split('<!---Illegal PyPi RST data -->')[0]
+        f = open(get_path('README.rst'), 'w')
+        f.write(long_description)
+        f.close()
+        print("Successfully converted README.md to README.rst")
+    except (IOError, ImportError):
+        pass
 
 try:
-    import pypandoc
-    long_description = pypandoc.convert(get_path('README.md'), 'rst')
-    long_description = long_description.split('<!---Illegal PyPi RST data -->')[0]
-    f = open(get_path('README.rst'), 'w')
-    f.write(long_description)
-    f.close()
-    print("Successfully converted README.md to README.rst")
-except (IOError, ImportError):
+    long_description=read('README.rst')
+except IOError:
     try:
-        long_description=read('README.rst')
+        long_description=read('README.md')
     except IOError:
-        try:
-            long_description=read('README.md')
-        except IOError:
-            long_description = ""
+        long_description = ""
     
     
 install_requires = [
