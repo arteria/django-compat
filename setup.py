@@ -42,6 +42,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     description="For- and backwards compatibility layer for Django 1.4, 1.7 and 1.8",
+    long_description=long_description,
     license='MIT',
     install_requires=install_requires,
     classifiers=[
