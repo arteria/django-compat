@@ -26,8 +26,13 @@ try:
     f.close()
     print("Successfully converted README.md to README.rst")
 except (IOError, ImportError):
-    # No long description... but nevermind, it's only for PyPi uploads.
-    long_description = ""
+    try:
+        long_description=read('README.rst')
+    except IOError:
+        try:
+            long_description=read('README.md')
+        except IOError:
+            long_description = ""
     
     
 install_requires = [
