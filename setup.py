@@ -16,7 +16,7 @@ def get_path(fname):
 def read(fname):
     return open(get_path(fname)).read()
 
-if sys.argv[-1] == 'generate-readme':
+if sys.argv[-1] == 'genreadme':
     try:
         import pypandoc
         long_description = pypandoc.convert(get_path('README.md'), 'rst')
@@ -27,6 +27,7 @@ if sys.argv[-1] == 'generate-readme':
         print("Successfully converted README.md to README.rst")
     except (IOError, ImportError):
         pass
+    sys.exit()
 
 try:
     long_description=read('README.rst')
