@@ -6,14 +6,14 @@ import django
 
 from django.conf import settings
 
-from django.db.models import Manager
-
+# removed get_queryset <> get_query_set see, #29
+#from django.db.models import Manager
 ## Monkey patch:
-
-try:
-    Manager.get_query_set = Manager.get_queryset
-except AttributeError:
-    Manager.get_queryset = Manager.get_query_set
+#
+#try:
+#    Manager.get_query_set = Manager.get_queryset
+#except AttributeError:
+#    Manager.get_queryset = Manager.get_query_set
 
 
 
