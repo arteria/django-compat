@@ -10,7 +10,6 @@ For- and backwards compatibility layer for Django 1.4, 1.7 and 1.8
 
 What startet as an experiment based on [this discussion on reddit](http://redd.it/2jrr4l) has proven to be true in real life. django-compat is [currently being discussed](https://groups.google.com/d/msg/django-developers/ASnZ5Uyol6Y/yIPUK2SWJekJ) on the django-developer mailing list.  
 
-
 # Who uses django-compat
 
 Two popular examples of open source reusable app that uses django-compat are [django-hijack](https://github.com/arteria/django-hijack/) and [django-background-tasks](https://github.com/arteria/django-background-tasks).   
@@ -50,8 +49,6 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * GenericForeignKey
 * get_ident
 * get_model_name
-* get_query_set
-* get_queryset
 * get_user_model
 * get_username_field
 * handler404
@@ -140,4 +137,7 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 - [ ] https://github.com/mariocesar/sorl-thumbnail/blob/master/sorl/thumbnail/compat.py
 
 
- 
+# Changelog
+
+## 2015/07/08 
+* get_query_set/ get_queryset support was dropped again (#29) 
