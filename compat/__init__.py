@@ -17,7 +17,10 @@ from django.conf import settings
 
 
 
-
+try:
+    from django.template.base import add_to_builtins
+except ImportError:  # Django < 1.8
+    from django.template import add_to_builtins
 
 
 try:
@@ -340,6 +343,7 @@ atomic = commit_on_success = getattr(django.db.transaction, 'atomic', None) or g
 
 # the tests will try to import these
 __all__ = [
+    'add_to_builtins',
     'get_model_name',
     'get_user_model',
     'get_username_field',
