@@ -41,6 +41,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 
 # Compatible objects
 
+* add_to_builtins
 * atomic or commit_on_success (commit_on_success replaced by atomic in Django >=1.8)
 * BytesIO
 * clean_manytomany_helptext
@@ -140,6 +141,10 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 
 
 # Changelog
+
+### 2015/07/15
+
+* ``add_to_builtins`` was added 
 
 ### 2015/07/08 
 * ``get_query_set``/``get_queryset`` support was dropped again (see [#29](https://github.com/arteria/django-compat/issues/29)) 
