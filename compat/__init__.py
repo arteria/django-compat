@@ -36,10 +36,10 @@ except ImportError:
 
 
 # get_indent
-if six.PY3:
+try:
     from threading import get_ident
-else:
-    from thread import get_ident  # noqa
+except ImportError:
+    from six.moves._thread import get_ident  # noqa
 
 try:
     from django.conf.urls import url, patterns, include, handler404, handler500
