@@ -1,4 +1,6 @@
 language: python
+sudo: false
+cache: pip
 
 # Python versions supported by Django
 #       2.5 2.6 2.7   3.2 3.3 3.4 3.5 3.6
@@ -43,8 +45,8 @@ matrix:
           env: DJANGO=django==1.8.*
 
 install:
-    - pip install -r requirements.txt
-    - pip install $DJANGO
+    - pip install "pip>=7.0" wheel
+    - pip install -r requirements.txt $DJANGO
 
 script:
     python runtests.py
