@@ -1,21 +1,52 @@
 language: python
+sudo: false
+cache: pip
 
-python:
-    - "2.7"
-    - "3.4"
-env:
-    - DJANGO=django==1.4.*
-    - DJANGO=django==1.6.*
-    - DJANGO=django==1.7.*
-    - DJANGO=django==1.8.*
+# Python versions supported by Django
+#       2.5 2.6 2.7   3.2 3.3 3.4 3.5 3.6
+# 1.4    X   X   X
+# 1.6        X   X     X   X
+# 1.7            X     X   X   X
+# 1.8            X     X   X   X
+
+matrix:
+    include:
+        - python: 2.6
+          env: DJANGO=django==1.4.*
+        - python: 2.6
+          env: DJANGO=django==1.6.*
+
+        - python: 2.7
+          env: DJANGO=django==1.4.*
+        - python: 2.7
+          env: DJANGO=django==1.6.*
+        - python: 2.7
+          env: DJANGO=django==1.7.*
+        - python: 2.7
+          env: DJANGO=django==1.8.*
+
+        - python: 3.2
+          env: DJANGO=django==1.6.*
+        - python: 3.2
+          env: DJANGO=django==1.7.*
+        - python: 3.2
+          env: DJANGO=django==1.8.*
+
+        - python: 3.3
+          env: DJANGO=django==1.6.*
+        - python: 3.3
+          env: DJANGO=django==1.7.*
+        - python: 3.3
+          env: DJANGO=django==1.8.*
+
+        - python: 3.4
+          env: DJANGO=django==1.7.*
+        - python: 3.4
+          env: DJANGO=django==1.8.*
 
 install:
-    - pip install $DJANGO
+    - pip install "pip>=7.0" wheel
+    - pip install -r requirements.txt $DJANGO
 
 script:
     python runtests.py
-
-matrix:
-    exclude:
-        - python: "3.4"
-          env: DJANGO=django==1.4.*
