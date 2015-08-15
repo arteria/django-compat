@@ -247,7 +247,7 @@ def rollback(using=None):
     try:
         django.db.transaction.rollback(using)
     except django.db.transaction.TransactionManagementError:
-        pass
+        django.db.transaction.set_rollback(True, using)
 
 
 # HttpResponseBase only exists from 1.5 onwards

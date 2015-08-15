@@ -119,3 +119,50 @@ class CompatTests(TestCase):
         """
         with self.assertRaises(NoReverseMatch):
             resolve_url(lambda: 'asdf')
+
+
+    def test_commit_on_success(self):
+        """
+        Test of commit_on_success
+        """
+        @compat.commit_on_success
+        def db_action():
+            m = UnimportantThing(importance=1)
+            m.save()
+
+        db_action()
+        self.assertEqual(UnimportantThing.objects.get(pk=1).importance, 1)
+
+
+    def test_commit(self):
+        """
+        Test of commit
+        """
+        m = UnimportantThing(importance=2)
+        m.save()
+        compat.commit()
+        self.assertEqual(UnimportantThing.objects.get(pk=1).importance, 2)
+
+
+    def test_rollback(self):
+        """
+        Test of rollback
+        """
+        @compat.commit_on_success
+        def db_action():
+            m = UnimportantThing(importance=1)
+            m.save()
+            return m
+
+        @compat.commit_on_success
+        def db_action_with_rollback(m):
+            m.importance = 3
+            m.save()
+            compat.rollback()
+
+        m = db_action()
+        db_action_with_rollback(m)
+        self.assertEqual(UnimportantThing.objects.get(pk=1).importance, 1)
+
+
+
