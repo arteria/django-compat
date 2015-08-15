@@ -230,6 +230,26 @@ def import_string(dotted_path):
         six.reraise(ImportError, ImportError(msg), sys.exc_info()[2])
 
 
+def commit(using=None):
+    """
+    Possibility of calling transaction.commit() in new Django versions (in atomic block).
+    """
+    try:
+        django.db.transaction.commit(using)
+    except django.db.transaction.TransactionManagementError:
+        pass
+
+
+def rollback(using=None):
+    """
+    Possibility of calling transaction.rollback() in new Django versions (in atomic block).
+    """
+    try:
+        django.db.transaction.rollback(using)
+    except django.db.transaction.TransactionManagementError:
+        pass
+
+
 # HttpResponseBase only exists from 1.5 onwards
 try:
     from django.http.response import HttpResponseBase
@@ -348,6 +368,8 @@ __all__ = [
     'get_user_model',
     'get_username_field',
     'import_string',
+    'commit',
+    'rollback',
     'user_model_label',
     'url',
     'patterns',
