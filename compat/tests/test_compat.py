@@ -1,10 +1,9 @@
 from django.test import TestCase
-
+import django
 from django.contrib.auth.views import logout
-from django.core.urlresolvers import NoReverseMatch, reverse_lazy
+from django.core.urlresolvers import NoReverseMatch
 
 from compat import resolve_url
-from compat import six
 
 import compat
 
@@ -120,49 +119,73 @@ class CompatTests(TestCase):
         with self.assertRaises(NoReverseMatch):
             resolve_url(lambda: 'asdf')
 
-
     def test_commit_on_success(self):
         """
         Test of commit_on_success
         """
         @compat.commit_on_success
         def db_action():
-            m = UnimportantThing(importance=1)
+            m = UnimportantThing(pk=1, importance=1)
             m.save()
 
         db_action()
         self.assertEqual(UnimportantThing.objects.get(pk=1).importance, 1)
 
-
     def test_commit(self):
         """
         Test of commit
         """
-        m = UnimportantThing(importance=2)
+        m = UnimportantThing(pk=2, importance=2)
         m.save()
         compat.commit()
-        self.assertEqual(UnimportantThing.objects.get(pk=1).importance, 2)
+        self.assertEqual(UnimportantThing.objects.get(pk=2).importance, 2)
 
-
-    def test_rollback(self):
+    def test_rollback_with_sid(self):
         """
-        Test of rollback
+        Test of rollback with transaction savepoint
         """
         @compat.commit_on_success
         def db_action():
-            m = UnimportantThing(importance=1)
+            m = UnimportantThing(pk=3, importance=3)
             m.save()
             return m
 
         @compat.commit_on_success
         def db_action_with_rollback(m):
-            m.importance = 3
+            m.importance = 5
+            sid = django.db.transaction.savepoint()
             m.save()
-            compat.rollback()
+            compat.rollback(None, sid)
+
+        if django.VERSION < (1, 5):  # Rollback doesn't work with SQLite
+            return
 
         m = db_action()
         db_action_with_rollback(m)
-        self.assertEqual(UnimportantThing.objects.get(pk=1).importance, 1)
+        self.assertEqual(UnimportantThing.objects.get(pk=3).importance, 3)
+
+    def test_rollback_without_sid(self):
+        """
+        Test of rollback without transaction savepoint
+        """
+        @compat.commit_on_success
+        def db_action():
+            m = UnimportantThing(pk=4, importance=4)
+            m.save()
+            return m
+
+        @compat.commit_on_success
+        def db_action_with_rollback(m):
+            m.importance = 5
+            m.save()
+            compat.rollback()
+
+        if django.VERSION < (1, 8):  # Rollback doesn't work after .save() if an exception isn't thrown
+            return
+
+        m = db_action()
+        db_action_with_rollback(m)
+        self.assertEqual(UnimportantThing.objects.get(pk=4).importance, 4)
 
 
 

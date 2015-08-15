@@ -240,14 +240,18 @@ def commit(using=None):
         pass
 
 
-def rollback(using=None):
+def rollback(using=None, sid=None):
     """
     Possibility of calling transaction.rollback() in new Django versions (in atomic block).
+    Important: transaction savepoint (sid) is required for Django < 1.8
     """
-    try:
-        django.db.transaction.rollback(using)
-    except django.db.transaction.TransactionManagementError:
-        django.db.transaction.set_rollback(True, using)
+    if sid:
+        django.db.transaction.savepoint_rollback(sid)
+    else:
+        try:
+             django.db.transaction.rollback(using)
+        except django.db.transaction.TransactionManagementError:
+             django.db.transaction.set_rollback(True, using)
 
 
 # HttpResponseBase only exists from 1.5 onwards
