@@ -24,10 +24,17 @@ def setup():
     INSTALLED_APPS = [
         'compat',
     ]
-    if django.VERSION >= (1,6):
+    if django.VERSION < (1, 7):
+        INSTALLED_APPS.append('compat.tests')
+
+    if django.VERSION >= (1, 6):
         TEST_RUNNER = 'django.test.runner.DiscoverRunner'
     else:
         TEST_RUNNER = 'django.test.simple.DjangoTestSuiteRunner'
+
+    MIDDLEWARE_CLASSES = []
+    if django.VERSION < (1, 7):
+        MIDDLEWARE_CLASSES.append('django.middleware.transaction.TransactionMiddleware')
 
     from django.conf import settings
 
@@ -36,17 +43,14 @@ def setup():
             INSTALLED_APPS=INSTALLED_APPS,
             DATABASES=DATABASES,
             TEST_RUNNER=TEST_RUNNER,
-            ROOT_URLCONF='compat.tests.urls'
-        )
-
-
+            ROOT_URLCONF='compat.tests.urls',
+            MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES, )
 
 
 def runtests(*test_args):
 
-    if django.VERSION >= (1,7):
+    if django.VERSION >= (1, 7):
         django.setup()
-
 
     from django.test.utils import get_runner
     TestRunner = get_runner(settings)
