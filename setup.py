@@ -45,7 +45,7 @@ install_requires = [
 
 setup(
     name="django-compat",
-    version="1.0.6",
+    version="1.0.7",
     author_email="admin@arteria.ch",
     packages=find_packages(),
     include_package_data=True,
