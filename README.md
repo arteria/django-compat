@@ -8,7 +8,7 @@ For- and backwards compatibility layer for Django 1.4, 1.7 and 1.8
 
 ~~Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). Let's see where it goes.~~
 
-What startet as an experiment based on [this discussion on reddit](http://redd.it/2jrr4l) has proven to be true in real life. django-compat is [currently being discussed](https://groups.google.com/d/msg/django-developers/ASnZ5Uyol6Y/yIPUK2SWJekJ) on the django-developer mailing list. 
+What startet as an experiment based on [this discussion on reddit](http://redd.it/2jrr4l) has proven to be true in real life. 
 
 django-compat is under active development. To learn about other features, bug fixes, and changes, please refer to the [changelog](https://github.com/arteria/django-compat#changelog). 
 
