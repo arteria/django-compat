@@ -80,6 +80,13 @@ except ImportError:
 
 BytesIO = six.BytesIO
 
+try:
+    # Django 1.7 or over use the new application loading system
+    from django.apps import apps
+    get_model = apps.get_model
+except ImportError:
+    from django.db.models.loading import get_model
+    
 
 def get_model_name(model_cls):
     try:
@@ -368,6 +375,7 @@ atomic = commit_on_success = getattr(django.db.transaction, 'atomic', None) or g
 # the tests will try to import these
 __all__ = [
     'add_to_builtins',
+    'get_model',
     'get_model_name',
     'get_user_model',
     'get_username_field',
