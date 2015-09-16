@@ -51,6 +51,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * format_html
 * GenericForeignKey
 * get_ident
+* get_model
 * get_model_name
 * get_user_model
 * get_username_field
