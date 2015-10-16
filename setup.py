@@ -40,7 +40,7 @@ except IOError:
     
 install_requires = [
     'django>=1.4,<1.9',
-    'six',
+    'six>=1.10.0',
 ]
 
 setup(
