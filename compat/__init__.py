@@ -16,11 +16,12 @@ from django.conf import settings
 #    Manager.get_queryset = Manager.get_query_set
 
 
-
-try:
-    from django.template.base import add_to_builtins
-except ImportError:  # Django < 1.8
+if django.VERSION < (1, 8):
     from django.template import add_to_builtins
+elif django.VERSION < (1, 9):
+    from django.template.base import add_to_builtins
+else:
+    pass  # Removed in 1.9. Use template settings instead
 
 
 try:
@@ -363,10 +364,12 @@ try:
 except:
     from django.template.defaultfilters import slugify
 
-try:
-    from django.contrib.contenttypes.fields import GenericForeignKey
-except ImportError:  # django < 1.7
+if django.VERSION < (1, 7):
     from django.contrib.contenttypes.generic import GenericForeignKey
+elif django.VERSION < (1, 9):
+    from django.contrib.contenttypes.fields import GenericForeignKey
+else:
+    pass  # Loading models from __init__ is deprecated from 1.9. Import from compat.models instead
 
 # commit_on_success replaced by atomic in Django >=1.8
 atomic = commit_on_success = getattr(django.db.transaction, 'atomic', None) or getattr(django.db.transaction, 'commit_on_success')
@@ -374,7 +377,7 @@ atomic = commit_on_success = getattr(django.db.transaction, 'atomic', None) or g
 
 # the tests will try to import these
 __all__ = [
-    'add_to_builtins',
+    # 'add_to_builtins',
     'get_model',
     'get_model_name',
     'get_user_model',
@@ -411,7 +414,7 @@ __all__ = [
     'import_module',
     'VariableNode',
     'slugify',
-    'GenericForeignKey',
+    # 'GenericForeignKey',
     'SortedDict',
     'atomic',
     'commit_on_success', # alias

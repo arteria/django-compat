@@ -22,6 +22,8 @@ def setup():
     }
 
     INSTALLED_APPS = [
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
         'compat',
     ]
     if django.VERSION < (1, 7):

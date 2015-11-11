@@ -8,6 +8,7 @@ cache: pip
 # 1.6        X   X     X   X
 # 1.7            X     X   X   X
 # 1.8            X     X   X   X
+# 1.9            X             X   X
 
 matrix:
     include:
@@ -24,6 +25,8 @@ matrix:
           env: DJANGO=django==1.7.*
         - python: 2.7
           env: DJANGO=django==1.8.*
+        - python: 2.7
+          env: DJANGO=django==1.9.*
 
         - python: 3.2
           env: DJANGO=django==1.6.*
@@ -43,6 +46,11 @@ matrix:
           env: DJANGO=django==1.7.*
         - python: 3.4
           env: DJANGO=django==1.8.*
+        - python: 3.4
+          env: DJANGO=django==1.9.*
+
+        - python: 3.5
+          env: DJANGO=django==1.9.*
 
 install:
     - pip install "pip>=7.0" wheel

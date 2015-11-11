@@ -4,7 +4,7 @@ django-compat
 [![Build Status](https://travis-ci.org/arteria/django-compat.svg?branch=master)](https://travis-ci.org/arteria/django-compat)
 [![Stories in Ready](https://badge.waffle.io/arteria/django-compat.png?label=ready&title=Ready)](https://waffle.io/arteria/django-compat)
 
-For- and backwards compatibility layer for Django 1.4, 1.7 and 1.8
+For- and backwards compatibility layer for Django 1.4, 1.7, 1.8, and 1.9
 
 ~~Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). Let's see where it goes.~~
 
@@ -49,7 +49,6 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * EmailValidator
 * force_text
 * format_html
-* GenericForeignKey
 * get_ident
 * get_model
 * get_model_name
@@ -80,6 +79,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 * VariableNode
 * View
 * resolve_url
+* models.GenericForeignKey
 
 # Manual adjustments
 
@@ -142,6 +142,11 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 
 
 # Changelog
+
+### 2015/11/11
+
+* ``add_to_builtins`` was removed for Django >= 1.9
+* ``GenericForeignKey` was moved to ``compat.models`` for Django >= 1.9
 
 ### 2015/07/15
 

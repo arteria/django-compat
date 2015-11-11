@@ -39,7 +39,7 @@ except IOError:
     
     
 install_requires = [
-    'django>=1.4,<1.9',
+    'django>=1.4,<1.10',
     'six>=1.10.0',
 ]
 
@@ -49,7 +49,7 @@ setup(
     author_email="admin@arteria.ch",
     packages=find_packages(),
     include_package_data=True,
-    description="For- and backwards compatibility layer for Django 1.4, 1.7 and 1.8",
+    description="For- and backwards compatibility layer for Django 1.4, 1.7, 1.8, and 1.9",
     long_description=long_description,
     license='MIT',
     install_requires=install_requires,
@@ -62,6 +62,7 @@ setup(
         'Framework :: Django :: 1.6',
         'Framework :: Django :: 1.7',
         'Framework :: Django :: 1.8',
+        'Framework :: Django :: 1.9',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',

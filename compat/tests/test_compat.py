@@ -3,7 +3,7 @@ import django
 from django.contrib.auth.views import logout
 from django.core.urlresolvers import NoReverseMatch
 
-from compat import resolve_url
+from compat import import_module, resolve_url
 
 import compat
 
@@ -12,15 +12,14 @@ from .models import UnimportantThing
 class CompatTests(TestCase):
 
     def test_compat(self):
-        from compat import import_module
-        from compat import __all__
-
         compat = import_module('compat')
+        for attribute in compat.__all__:
+            self.assertTrue(hasattr(compat, attribute))
 
-        for n in __all__:
-            getattr(compat, n)
-
-        self.assertTrue(True)
+    def test_compat_models(self):
+        compat_models = import_module('compat.models')
+        for attribute in compat_models.__all__:
+            self.assertTrue(hasattr(compat_models, attribute))
 
     def test_format_html(self):
         """
