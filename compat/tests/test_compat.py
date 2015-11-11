@@ -7,7 +7,7 @@ from compat import import_module, resolve_url
 
 import compat
 
-from .models import UnimportantThing
+from compat.tests.test_app.models import UnimportantThing
 
 class CompatTests(TestCase):
 

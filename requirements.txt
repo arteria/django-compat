@@ -1,1 +1,2 @@
-six # 
+six
+django-nose>=1.2

@@ -25,14 +25,11 @@ def setup():
         'django.contrib.auth',
         'django.contrib.contenttypes',
         'compat',
+        'compat.tests.test_app',
     ]
     if django.VERSION < (1, 7):
         INSTALLED_APPS.append('compat.tests')
 
-    if django.VERSION >= (1, 6):
-        TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-    else:
-        TEST_RUNNER = 'django.test.simple.DjangoTestSuiteRunner'
 
     MIDDLEWARE_CLASSES = []
     if django.VERSION < (1, 7):
@@ -44,7 +41,6 @@ def setup():
         settings.configure(
             INSTALLED_APPS=INSTALLED_APPS,
             DATABASES=DATABASES,
-            TEST_RUNNER=TEST_RUNNER,
             ROOT_URLCONF='compat.tests.urls',
             MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES, )
 
@@ -54,12 +50,9 @@ def runtests(*test_args):
     if django.VERSION >= (1, 7):
         django.setup()
 
-    from django.test.utils import get_runner
-    TestRunner = get_runner(settings)
-    test_runner = TestRunner(verbosity=1, interactive=False, failfast=False)
-
-    failures = test_runner.run_tests(test_args)
-
+    from django_nose import NoseTestSuiteRunner
+    failures = NoseTestSuiteRunner(verbosity=2,
+                                      interactive=True).run_tests(test_args)
     sys.exit(failures)
 
 
