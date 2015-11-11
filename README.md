@@ -41,45 +41,50 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 
 # Compatible objects
 
-* add_to_builtins
-* atomic or commit_on_success (commit_on_success replaced by atomic in Django >=1.8)
-* BytesIO
-* clean_manytomany_helptext
-* conditional_escape
-* EmailValidator
-* force_text
-* format_html
-* get_ident
-* get_model
-* get_model_name
-* get_user_model
-* get_username_field
-* handler404
-* handler500
-* HttpResponseBase
-* import_module
-* import_string
-* include
-* JsonResponse
-* parse_qs
-* patterns
-* python_2_unicode_compatible
-* simplejson
-* slugify
-* smart_text
-* SortedDict
-* StringIO
-* unquote_plus
-* url
-* urlencode
-* urlparse
-* urlunparse
-* URLValidator
-* user_model_label
-* VariableNode
-* View
-* resolve_url
-* models.GenericForeignKey
+|Compatible object|Specifically tested|1.4|1.7|1.8|1.9|Notes|
+|---|---|---|---|---|---|---|
+|`BytesIO`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`EmailValidator`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`GenericForeignKey`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:||
+|`GenericForeignKey`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`HttpResponseBase`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`JsonResponse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`SortedDict`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`StringIO`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`URLValidator`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`VariableNode`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`View`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`add_to_builtins`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:||
+|`atomic`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`clean_manytomany_helptext`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`commit`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`commit_on_success`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|`commit_on_success` replaced by `atomic` in Django >= 1.8|
+|`force_text`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`format_html`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`get_ident`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`get_model`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`get_model_name`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`get_user_model`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`get_username_field`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`handler404`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`handler500`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`import_module`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`import_string`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`include`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`parse_qs`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`patterns`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`python_2_unicode_compatible`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`resolve_url`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`rollback`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Transaction savepoint (sid) is required for Django < 1.8|
+|`simplejson`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`slugify`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`smart_text`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`unquote_plus`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`url`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`urlencode`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`urlparse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`urlunparse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`user_model_label`|:heavy_multiplication_x:|:warning:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|See "Manual adjustments"|
 
 # Manual adjustments
 
@@ -145,8 +150,9 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 
 ### 2015/11/11
 
-* ``add_to_builtins`` was removed for Django >= 1.9
-* ``GenericForeignKey` was moved to ``compat.models`` for Django >= 1.9
+* 1.9 compatibility for existing objects with the following changes:
+	* ``add_to_builtins`` was removed for Django >= 1.9
+	* ``GenericForeignKey` was moved to ``compat.models`` for Django >= 1.9
 
 ### 2015/07/15
 

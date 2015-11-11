@@ -377,7 +377,7 @@ atomic = commit_on_success = getattr(django.db.transaction, 'atomic', None) or g
 
 # the tests will try to import these
 __all__ = [
-    # 'add_to_builtins',
+    'add_to_builtins',
     'get_model',
     'get_model_name',
     'get_user_model',
@@ -414,7 +414,7 @@ __all__ = [
     'import_module',
     'VariableNode',
     'slugify',
-    # 'GenericForeignKey',
+    'GenericForeignKey',
     'SortedDict',
     'atomic',
     'commit_on_success', # alias
