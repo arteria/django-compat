@@ -68,7 +68,7 @@ COMPATIBLE_OBJECTS = (
         'incompatible_versions': [],
         'issues_versions': [(1, 4), ],
         'is_tested': False,
-        'name': 'user_model_label',
+        'name': 'url',
         'notes': 'See "Manual adjustments"'
     },
     {   
@@ -76,7 +76,7 @@ COMPATIBLE_OBJECTS = (
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
-        'name': 'url',
+        'name': 'user_model_label',
         'notes': ''
     },
     {   
