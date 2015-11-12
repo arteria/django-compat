@@ -2,6 +2,7 @@ from django.test import TestCase
 import django
 from django.contrib.auth.views import logout
 from django.core.urlresolvers import NoReverseMatch
+from django.template import Template, Context
 
 import compat
 from compat import import_module, resolve_url
@@ -193,6 +194,18 @@ class CompatTests(TestCase):
         m = db_action()
         db_action_with_rollback(m)
         self.assertEqual(UnimportantThing.objects.get(pk=4).importance, 4)
+
+    def test_url_template_tag(self):
+        template = Template(
+            '{% load url from compat %}'
+            '<a href="{% url "logout" %}">Log out</a>'
+        )
+        html = template.render(Context({}))
+        self.assertEqual(
+            html,
+            '<a href="/accounts/logout/">Log out</a>'
+        )
+
 
 
 

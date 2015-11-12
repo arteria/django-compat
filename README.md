@@ -80,47 +80,12 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 |`slugify`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`smart_text`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`unquote_plus`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
-|`url`|:heavy_multiplication_x:|:warning:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|See "Manual adjustments"|
+|`url`|:heavy_multiplication_x:|:warning:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Function used in `urlpatterns`|
+|`url`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Templatetag; import with `{% load url from compat %}`|
 |`urlencode`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`urlparse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`urlunparse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`user_model_label`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
-
-# Manual adjustments
-
-## ``url`` template tag 
-
-The  ``url`` template tag works different in Django 1.4, see the [release notes](https://docs.djangoproject.com/en/1.4/releases/1.3/#changes-to-url-and-ssi) for more info. 
-
-### Old, Django 1.4
-
-	{% url url_name %} 
-	{% url url_name argument1 argument2 %}
-	
-### New, Django 1.4 + using forwards compatibility.
-	
-	{% load url from future %}
-	... 
-	{% url 'url_name' %} 
-	{% url 'url_name' argument1 argument2 %}
-	
-The following ``sed`` command can be used to update your templates. Note that the ``{% load url from future %}`` is missing and must be added manually.
-	
-	sed -i -r "s#\{% url ([a-zA-Z0-9_.:-]+)#\{% url '\1'#g" template.html
-
-
-The inplace editing works great on Linux. If your are working on a Mac and you get the following error 
-    
-    	"\1 not defined in the RE"
-
-try the following command:
-
-	TMP_FILE=`mktemp /tmp/sed.XXXXXXXXXX`
-	sed -E "s#\{% url ([a-zA-Z0-9_.:-]+)#\{% url '\1'#g" template.html > $TMP_FILE
-	mv $TMP_FILE template.html
-
-Source: [stackoverflow, Migrate url tags to Django 1.5](http://stackoverflow.com/a/13592772/485361)
-
 
 # Resources and references 
 

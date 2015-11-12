@@ -69,7 +69,7 @@ COMPATIBLE_OBJECTS = (
         'issues_versions': [(1, 4), ],
         'is_tested': False,
         'name': 'url',
-        'notes': 'See "Manual adjustments"'
+        'notes': 'Function used in `urlpatterns`',
     },
     {   
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
@@ -344,6 +344,16 @@ COMPATIBLE_OBJECTS = (
         'module': 'models',
         'name': 'GenericForeignKey',
         'notes': ''
+    },
+    {
+
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'incompatible_versions': [],
+        'issues_versions': [],
+        'is_tested': True,
+        'module': 'templatetags.compat',
+        'name': 'url',
+        'notes': 'Templatetag; import with `{% load url from compat %}`',
     },
 )
 
