@@ -64,9 +64,9 @@ COMPATIBLE_OBJECTS = (
         'notes': 'Transaction savepoint (sid) is required for Django < 1.8'
     },
     {   
-        'compatible_versions': [(1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
-        'issues_versions': [(1, 4), ],
+        'issues_versions': [],
         'is_tested': False,
         'name': 'url',
         'notes': 'Function used in `urlpatterns`',

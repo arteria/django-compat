@@ -80,7 +80,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 |`slugify`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`smart_text`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`unquote_plus`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
-|`url`|:heavy_multiplication_x:|:warning:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Function used in `urlpatterns`|
+|`url`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Function used in `urlpatterns`|
 |`url`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Templatetag; import with `{% load url from compat %}`|
 |`urlencode`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`urlparse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
@@ -105,6 +105,7 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 - [X] https://github.com/tomchristie/django-rest-framework/blob/master/rest_framework/compat.py
 	- [ ] TODO: MinValueValidator, MaxValueValidator et al. (other relevant bits are included) Django 1.8
 - [X] https://gist.github.com/theskumar/ff8de60ff6a33bdacaa8
+- [X] https://github.com/evonove/django-oauth-toolkit/blob/master/oauth2_provider/templatetags/compat.py
 - [ ] https://github.com/kennethreitz/requests/blob/master/requests/compat.py
 - [ ] https://github.com/mitsuhiko/jinja2/blob/master/jinja2/_compat.py
 - [ ] https://github.com/jaraco/setuptools/blob/master/setuptools/compat.py 
@@ -112,6 +113,10 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 
 
 # Changelog
+
+### 2015/11/12
+
+* added `{% load url from compat %}`
 
 ### 2015/11/11
 
