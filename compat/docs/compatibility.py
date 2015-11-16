@@ -376,7 +376,8 @@ def get_compatible_objects_as_markdown():
         return '|' + '|'.join(row) + '|'
 
     def _get_row(object):
-        row = ['`' + object['name'] + '`']
+        name = object['module'] + '.' + object['name'] if 'module' in object else object['name']
+        row = ['`' + name + '`']
         if object['is_tested']:
             row.append(':heavy_check_mark:')
         else:

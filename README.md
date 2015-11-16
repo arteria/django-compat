@@ -4,7 +4,7 @@ django-compat
 [![Build Status](https://travis-ci.org/arteria/django-compat.svg?branch=master)](https://travis-ci.org/arteria/django-compat)
 [![Stories in Ready](https://badge.waffle.io/arteria/django-compat.png?label=ready&title=Ready)](https://waffle.io/arteria/django-compat)
 
-For- and backwards compatibility layer for Django 1.4, 1.7, 1.8, and 1.9
+Forward and backwards compatibility layer for Django 1.4, 1.7, 1.8, and 1.9
 
 ~~Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). Let's see where it goes.~~
 
@@ -46,7 +46,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 |`BytesIO`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`EmailValidator`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`GenericForeignKey`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:||
-|`GenericForeignKey`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`models.GenericForeignKey`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`HttpResponseBase`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`JsonResponse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`SortedDict`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
@@ -81,7 +81,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 |`smart_text`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`unquote_plus`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`url`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Function used in `urlpatterns`|
-|`url`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Templatetag; import with `{% load url from compat %}`|
+|`templatetags.compat.url`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Templatetag; import with `{% load url from compat %}`|
 |`urlencode`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`urlparse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`urlunparse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
@@ -116,7 +116,7 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 
 ### 2015/11/12
 
-* added `{% load url from compat %}`
+* Added `{% load url from compat %}`
 
 ### 2015/11/11
 
