@@ -28,13 +28,6 @@ matrix:
         - python: 2.7
           env: DJANGO=django==1.9.*
 
-        - python: 3.2
-          env: DJANGO=django==1.6.*
-        - python: 3.2
-          env: DJANGO=django==1.7.*
-        - python: 3.2
-          env: DJANGO=django==1.8.*
-
         - python: 3.3
           env: DJANGO=django==1.6.*
         - python: 3.3
@@ -53,7 +46,7 @@ matrix:
           env: DJANGO=django==1.9.*
 
 install:
-    - pip install "pip>=7.0" wheel "virtualenv<14.0.0"
+    - pip install "pip>=7.0" wheel
     - pip install -r requirements.txt $DJANGO
 
 script:
