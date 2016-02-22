@@ -53,7 +53,7 @@ matrix:
           env: DJANGO=django==1.9.*
 
 install:
-    - pip install "pip>=7.0" wheel
+    - pip install "pip>=7.0" wheel "virtualenv<14.0.0"
     - pip install -r requirements.txt $DJANGO
 
 script:
