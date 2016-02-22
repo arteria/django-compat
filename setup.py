@@ -14,7 +14,7 @@ def get_path(fname):
 
 
 def read(fname):
-    return open(get_path(fname)).read()
+    return open(get_path(fname), 'r', encoding='utf8').read()
 
 if sys.argv[-1] == 'genreadme':
     try:
