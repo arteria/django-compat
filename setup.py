@@ -3,6 +3,11 @@ import os, sys
 from setuptools import setup
 from setuptools import find_packages
 
+# Make the open function accept encodings in python < 3.x
+if sys.version_info[0] < 3:
+    import codecs
+    open = codecs.open  # pylint: disable=redefined-builtin
+
 # Utility function to read the README file.
 # Used for the long_description.  It's nice, because now 1) we have a top level
 # README file and 2) it's easier to type in the README file than to put a raw
