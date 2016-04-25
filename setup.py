@@ -51,6 +51,7 @@ install_requires = [
 setup(
     name="django-compat",
     version="1.0.10",
+    author='arteria GmbH',
     author_email="admin@arteria.ch",
     packages=find_packages(),
     include_package_data=True,
@@ -58,6 +59,7 @@ setup(
     long_description=long_description,
     license='MIT',
     install_requires=install_requires,
+    url="https://github.com/arteria/django-compat",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Framework :: Django',
