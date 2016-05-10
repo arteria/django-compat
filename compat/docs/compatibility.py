@@ -267,7 +267,7 @@ COMPATIBLE_OBJECTS = (
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
-        'is_tested': False,
+        'is_tested': True,
         'name': 'import_module',
         'notes': ''
     },
