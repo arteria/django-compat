@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 import json
 import uuid
 
+from django.contrib.admin.models import LogEntry
 from django.core.serializers.json import DjangoJSONEncoder
 from django.test import TestCase, SimpleTestCase
 import django
@@ -12,7 +13,7 @@ from django.core.urlresolvers import NoReverseMatch
 from django.template import Template, Context, TemplateSyntaxError
 
 import compat
-from compat import import_module, resolve_url, JsonResponse
+from compat import import_module, resolve_url, JsonResponse, get_model
 from compat.docs.compatibility import is_compatible
 from compat.tests.test_app.models import UnimportantThing
 
@@ -214,8 +215,43 @@ class CompatTests(TestCase):
             '<a href="/accounts/logout/">Log out</a>'
         )
 
+    class GetModelsTest(SimpleTestCase):
+        """
+        Sources:
+        * https://github.com/django/django/blob/stable/1.9.x/tests/app_loading/tests.py
+        * https://github.com/django/django/blob/stable/1.9.x/tests/apps/tests.py
+
+        """
+        def setUp(self):
+            from compat.tests.utils_tests.not_installed import models
+            self.not_installed_module = models
+
+        def test_get_model_only_returns_installed_models(self):
+            with self.assertRaises(LookupError):
+                get_model("not_installed", "NotInstalledModel")
+
+        def test_get_model(self):
+            self.assertEqual(get_model('admin', 'LogEntry'), LogEntry)
+            with self.assertRaises(LookupError):
+                get_model('admin', 'LogExit')
+
+            # App label is case-sensitive, Model name is case-insensitive.
+            self.assertEqual(get_model('admin', 'loGentrY'), LogEntry)
+            with self.assertRaises(LookupError):
+                get_model('Admin', 'LogEntry')
+
+            # A single argument is accepted.
+            self.assertEqual(get_model('admin.LogEntry'), LogEntry)
+            with self.assertRaises(LookupError):
+                get_model('admin.LogExit')
+            with self.assertRaises(ValueError):
+                get_model('admin_LogEntry')
+
 
 class VerbatimTagTestCase(TestCase):
+    """
+    Source: https://github.com/django/django/blob/master/tests/template_tests/syntax_tests/test_verbatim.py
+    """
 
     def setUp(self):
         self.import_tag = '{% load verbatim from compat %}'
@@ -273,6 +309,9 @@ class VerbatimTagTestCase(TestCase):
 
 
 class JsonResponseTests(SimpleTestCase):
+    """
+    Source: https://github.com/django/django/blob/master/tests/httpwrappers/tests.py
+    """
     def test_json_response_non_ascii(self):
         data = {'key': 'łóżko'}
         response = JsonResponse(data)
