@@ -14,7 +14,7 @@ from django.conf import settings
 #    Manager.get_query_set = Manager.get_queryset
 #except AttributeError:
 #    Manager.get_queryset = Manager.get_query_set
-
+from django.core.exceptions import ImproperlyConfigured
 
 if django.VERSION < (1, 8):
     from django.template import add_to_builtins
@@ -361,6 +361,31 @@ try:
     from django.db import close_old_connections as close_connection
 except ImportError:  # django < 1.8
     from django.db import close_connection
+
+
+def get_template_loaders():
+    """
+    Compatibility method to fetch the template loaders.
+    Source: https://github.com/django-debug-toolbar/django-debug-toolbar/blob/ece1c2775af108a92a0ef59636266b49e286e916/debug_toolbar/compat.py
+    """
+    try:
+        from django.template.engine import Engine
+    except ImportError:  # Django < 1.8
+        Engine = None
+
+    if Engine:
+        try:
+            engine = Engine.get_default()
+        except ImproperlyConfigured:
+            loaders = []
+        else:
+            loaders = engine.template_loaders
+    else:  # Django < 1.8
+        from django.template.loader import find_template_loader
+        loaders = [
+            find_template_loader(loader_name)
+            for loader_name in settings.TEMPLATE_LOADERS]
+    return loaders
 
 
 ### Undocumented ###

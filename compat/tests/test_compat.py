@@ -13,7 +13,7 @@ from django.core.urlresolvers import NoReverseMatch
 from django.template import Template, Context, TemplateSyntaxError
 
 import compat
-from compat import import_module, resolve_url, JsonResponse, get_model
+from compat import import_module, resolve_url, JsonResponse, get_model, get_template_loaders
 from compat.docs.compatibility import is_compatible
 from compat.tests.test_app.models import UnimportantThing
 
@@ -240,6 +240,11 @@ class CompatTests(TestCase):
             )
             self.assertIn('Return value of my_tag', template.render(Context({})))
 
+    def test_get_template_loaders(self):
+        template_loaders = get_template_loaders()
+        self.assertEqual(len(template_loaders), 2)
+        self.assertIsInstance(template_loaders[0], django.template.loaders.filesystem.Loader)
+        self.assertIsInstance(template_loaders[1], django.template.loaders.app_directories.Loader)
 
     class GetModelsTest(SimpleTestCase):
         """

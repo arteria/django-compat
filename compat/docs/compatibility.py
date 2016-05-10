@@ -343,6 +343,14 @@ COMPATIBLE_OBJECTS = (
         'name': 'add_to_builtins',
         'notes': ''
     },
+    {
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'incompatible_versions': [],
+        'issues_versions': [],
+        'is_tested': True,
+        'name': 'get_template_loaders',
+        'notes': ''
+    },
     {   
         'compatible_versions': [(1, 4), (1, 7), (1, 8),],
         'incompatible_versions': [(1, 9),],
@@ -379,7 +387,7 @@ COMPATIBLE_OBJECTS = (
         'module': 'templatetags.compat',
         'name': 'verbatim',
         'notes': 'Templatetag; import with `{% load verbatim from compat %}`. 1.4: Does not allow specific closing '
-                 'tags, e.g. "{% endverbatim myblock %}", and does not preserve whitespace inside tags.',
+                 'tags, e.g. `{% endverbatim myblock %}`, and does not preserve whitespace inside tags.',
     },
 )
 
@@ -391,6 +399,7 @@ def is_compatible(object_name, version, module=''):
                     object.get('module', '') == module):
             return True
     return False
+
 
 # https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown
 def get_compatible_objects_as_markdown():
