@@ -319,10 +319,9 @@ else:
     from django.core.serializers.json import DjangoJSONEncoder
 
 
-# Django 1.7 compatibility
-try:
+if django.VERSION < (1, 8):
     from django.http import JsonResponse
-except:
+else:
     from .json_response import JsonResponse
 
 
