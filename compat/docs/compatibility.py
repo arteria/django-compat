@@ -327,6 +327,14 @@ COMPATIBLE_OBJECTS = (
         'name': 'resolve_url',
         'notes': ''
     },
+    {
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'incompatible_versions': [],
+        'issues_versions': [],
+        'is_tested': False,
+        'name': 'close_connection',
+        'notes': ''
+    },
     {   
         'compatible_versions': [(1, 4), (1, 7), (1, 8),],
         'incompatible_versions': [(1, 9),],

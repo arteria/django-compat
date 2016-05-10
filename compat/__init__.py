@@ -357,6 +357,12 @@ except ImportError:  # django < 1.5
     from .shortcuts import resolve_url
 
 
+try:
+    from django.db import close_old_connections as close_connection
+except ImportError:  # django < 1.8
+    from django.db import close_connection
+
+
 ### Undocumented ###
 
 try:
@@ -405,6 +411,7 @@ __all__ = [
     'urlunparse',
     'urlencode',
     'unquote_plus',
+    'DjangoJSONEncoder',
     'JsonResponse',
     'HttpResponseBase',
     'python_2_unicode_compatible',
@@ -426,4 +433,5 @@ __all__ = [
     'commit_on_success', # alias
     'format_html',
     'resolve_url',
+    'close_connection',
 ]
