@@ -6,7 +6,7 @@ COMPATIBLE_VERSIONS = (
     (1, 9),
 )
 
-COMPATIBLE_OBJECTS = (
+COMPATIBLE_OBJECTS = [
     {   
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
@@ -389,7 +389,31 @@ COMPATIBLE_OBJECTS = (
         'notes': 'Templatetag; import with `{% load verbatim from compat %}`. 1.4: Does not allow specific closing '
                  'tags, e.g. `{% endverbatim myblock %}`, and does not preserve whitespace inside tags.',
     },
-)
+    {
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'incompatible_versions': [],
+        'issues_versions': [],
+        'is_tested': False,
+        'name': 'urlresolvers',
+        'notes': ''
+    },
+]
+
+# django.core.urlresolvers will be moved to django.urls in 1.10
+# for urlresolvers_import in [
+#     'LocaleRegexProvider', 'LocaleRegexURLResolver', 'NoReverseMatch', 'RegexURLPattern', 'RegexURLResolver',
+#     'Resolver404', 'ResolverMatch', 'clear_url_caches', 'get_callable', 'get_mod_func', 'get_ns_resolver',
+#     'get_resolver', 'get_script_prefix', 'get_urlconf', 'is_valid_path', 'resolve', 'reverse', 'reverse_lazy',
+#     'set_script_prefix', 'set_urlconf',
+# ]:
+#     COMPATIBLE_OBJECTS.append({
+#             'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+#             'incompatible_versions': [],
+#             'issues_versions': [],
+#             'is_tested': False,
+#             'name': urlresolvers_import,
+#             'notes': ''
+#     })
 
 
 def is_compatible(object_name, version, module=''):

@@ -388,6 +388,24 @@ def get_template_loaders():
     return loaders
 
 
+if django.VERSION >= (1, 10):
+    import django.urls as urlresolvers
+    from django.urls import (
+        clear_url_caches, get_script_prefix, get_urlconf,
+        is_valid_path, resolve, reverse, reverse_lazy, set_script_prefix,
+        set_urlconf, LocaleRegexProvider, LocaleRegexURLResolver, RegexURLPattern,
+        RegexURLResolver, ResolverMatch, get_ns_resolver, get_resolver, get_callable, get_mod_func
+    )
+else:
+    import django.core.urlresolvers as urlresolvers
+    from django.core.urlresolvers import (
+        clear_url_caches, get_script_prefix, get_urlconf,
+        is_valid_path, resolve, reverse, reverse_lazy, set_script_prefix,
+        set_urlconf, LocaleRegexProvider, LocaleRegexURLResolver, RegexURLPattern,
+        RegexURLResolver, ResolverMatch, get_ns_resolver, get_resolver, get_callable, get_mod_func
+    )
+
+
 ### Undocumented ###
 
 try:
@@ -459,4 +477,9 @@ __all__ = [
     'format_html',
     'resolve_url',
     'close_connection',
+    'get_template_loaders',
+    'LocaleRegexProvider', 'LocaleRegexURLResolver', 'NoReverseMatch', 'RegexURLPattern', 'RegexURLResolver',
+    'Resolver404', 'ResolverMatch', 'clear_url_caches', 'get_callable', 'get_mod_func', 'get_ns_resolver',
+    'get_resolver', 'get_script_prefix', 'get_urlconf', 'is_valid_path', 'resolve', 'reverse', 'reverse_lazy',
+    'set_script_prefix', 'set_urlconf',
 ]
