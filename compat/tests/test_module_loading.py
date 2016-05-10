@@ -1,14 +1,14 @@
 import sys
-import unittest
 
 import imp
 
+from django.test import TestCase
 from django.utils.module_loading import module_has_submodule
 
 from compat import import_module
 
 
-class DefaultLoader(unittest.TestCase):
+class DefaultLoader(TestCase):
     def setUp(self):
         sys.meta_path.insert(0, ProxyFinder())
 
