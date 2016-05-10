@@ -86,6 +86,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 |`urlparse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`urlunparse`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`user_model_label`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`templatetags.compat.verbatim`|:heavy_check_mark:|:warning:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Templatetag; import with `{% load verbatim from compat %}`. 1.4: Does not allow specific closing tags, e.g. "{% endverbatim myblock %}", and does not preserve whitespace inside tags.|
 
 # Resources and references 
 

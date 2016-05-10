@@ -2,7 +2,7 @@ from django.test import TestCase
 import django
 from django.contrib.auth.views import logout
 from django.core.urlresolvers import NoReverseMatch
-from django.template import Template, Context
+from django.template import Template, Context, TemplateSyntaxError
 
 import compat
 from compat import import_module, resolve_url
@@ -207,5 +207,58 @@ class CompatTests(TestCase):
         )
 
 
+class VerbatimTagTestCase(TestCase):
 
+    def setUp(self):
+        self.import_tag = '{% load verbatim from compat %}'
 
+    def test_verbatim_tag01(self):
+        template = Template(self.import_tag +
+            '{% verbatim %}{{ bare }}{% endverbatim %}'
+        )
+        html = template.render(Context({}))
+        self.assertEqual(html,
+             '{{ bare }}'
+        )
+
+    def test_verbatim_tag02(self):
+        template = Template(self.import_tag +
+            '{% verbatim %}{% endif %}{% endverbatim %}'
+        )
+        html = template.render(Context({}))
+        self.assertEqual(html,
+             '{% endif %}'
+        )
+
+    def test_verbatim_tag03(self):
+        template = Template(self.import_tag +
+            '{% verbatim %}It\'s the {% verbatim %} tag{% endverbatim %}'
+        )
+        html = template.render(Context({}))
+        self.assertEqual(html,
+             'It\'s the {% verbatim %} tag'
+        )
+
+    def test_verbatim_tag04(self):
+        with self.assertRaises(TemplateSyntaxError):
+            Template(self.import_tag +
+                '{% verbatim %}{% verbatim %}{% endverbatim %}{% endverbatim %}'
+            )
+
+    def test_verbatim_tag05(self):
+        template = Template(self.import_tag +
+            '{% verbatim %}{% endverbatim %}{% verbatim %}{% endverbatim %}'
+        )
+        html = template.render(Context({}))
+        self.assertEqual(html, '')
+
+    if django.VERSION >= (1, 5):  # Not implemented in 1.4
+        def test_verbatim_tag06(self):
+            template = Template(self.import_tag +
+                '{% verbatim special %}'
+                                  'Don\'t {% endverbatim %} just yet{% endverbatim special %}'
+            )
+            html = template.render(Context({}))
+            self.assertEqual(html,
+                 'Don\'t {% endverbatim %} just yet'
+            )

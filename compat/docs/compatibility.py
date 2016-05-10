@@ -355,6 +355,16 @@ COMPATIBLE_OBJECTS = (
         'name': 'url',
         'notes': 'Templatetag; import with `{% load url from compat %}`',
     },
+    {
+        'compatible_versions': [(1, 7), (1, 8), (1, 9)],
+        'incompatible_versions': [],
+        'issues_versions': [(1, 4)],
+        'is_tested': True,
+        'module': 'templatetags.compat',
+        'name': 'verbatim',
+        'notes': 'Templatetag; import with `{% load verbatim from compat %}`. 1.4: Does not allow specific closing '
+                 'tags, e.g. "{% endverbatim myblock %}", and does not preserve whitespace inside tags.',
+    },
 )
 
 
