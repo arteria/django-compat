@@ -312,6 +312,13 @@ except ImportError:
     from django.utils.datastructures import SortedDict
 
 
+# Backporting from 1.8
+if django.VERSION < (1, 8):
+    from compat.json_response import DjangoJSONEncoder
+else:
+    from django.core.serializers.json import DjangoJSONEncoder
+
+
 # Django 1.7 compatibility
 try:
     from django.http import JsonResponse

@@ -1,13 +1,21 @@
-from django.test import TestCase
+# -*- encoding: utf-8 -*-
+from __future__ import unicode_literals
+
+import json
+import uuid
+
+from django.core.serializers.json import DjangoJSONEncoder
+from django.test import TestCase, SimpleTestCase
 import django
 from django.contrib.auth.views import logout
 from django.core.urlresolvers import NoReverseMatch
 from django.template import Template, Context, TemplateSyntaxError
 
 import compat
-from compat import import_module, resolve_url
+from compat import import_module, resolve_url, JsonResponse
 from compat.docs.compatibility import is_compatible
 from compat.tests.test_app.models import UnimportantThing
+
 
 class CompatTests(TestCase):
 
@@ -262,3 +270,40 @@ class VerbatimTagTestCase(TestCase):
             self.assertEqual(html,
                  'Don\'t {% endverbatim %} just yet'
             )
+
+
+class JsonResponseTests(SimpleTestCase):
+    def test_json_response_non_ascii(self):
+        data = {'key': 'łóżko'}
+        response = JsonResponse(data)
+        self.assertEqual(json.loads(response.content.decode()), data)
+
+    def test_json_response_raises_type_error_with_default_setting(self):
+        with self.assertRaises(TypeError):
+            JsonResponse([1, 2, 3])
+
+    def test_json_response_text(self):
+        response = JsonResponse('foobar', safe=False)
+        self.assertEqual(json.loads(response.content.decode()), 'foobar')
+
+    def test_json_response_list(self):
+        response = JsonResponse(['foo', 'bar'], safe=False)
+        self.assertEqual(json.loads(response.content.decode()), ['foo', 'bar'])
+
+    def test_json_response_uuid(self):
+        u = uuid.uuid4()
+        response = JsonResponse(u, safe=False)
+        self.assertEqual(json.loads(response.content.decode()), str(u))
+
+    def test_json_response_custom_encoder(self):
+        class CustomDjangoJSONEncoder(DjangoJSONEncoder):
+            def encode(self, o):
+                return json.dumps({'foo': 'bar'})
+
+        response = JsonResponse({}, encoder=CustomDjangoJSONEncoder)
+        self.assertEqual(json.loads(response.content.decode()), {'foo': 'bar'})
+
+    if django.VERSION >= (1, 9):
+        def test_json_response_passing_arguments_to_json_dumps(self):
+            response = JsonResponse({'foo': 'bar'}, json_dumps_params={'indent': 2})
+            self.assertEqual(response.content.decode(), '{\n  "foo": "bar"\n}')
