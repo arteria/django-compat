@@ -320,9 +320,9 @@ else:
 
 
 if django.VERSION < (1, 8):
-    from django.http import JsonResponse
+    from compat.json_response import JsonResponse
 else:
-    from .json_response import JsonResponse
+    from django.http import JsonResponse
 
 
 # format_html (django 1.6)
