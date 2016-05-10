@@ -215,6 +215,32 @@ class CompatTests(TestCase):
             '<a href="/accounts/logout/">Log out</a>'
         )
 
+    if django.VERSION < (1, 9):
+        def test_add_to_builtins(self):
+            from compat import add_to_builtins
+
+            # Explicit import of tags
+            template = Template(
+                '{% load test_app_tags %}'
+                '{% my_tag %}'
+            )
+            self.assertIn('Return value of my_tag', template.render(Context({})))
+
+            # No import
+            with self.assertRaises(TemplateSyntaxError):
+                template = Template(
+                    '{% my_tag %}'
+                )
+                template.render(Context({}))
+
+            # No import but add_to_builtins call
+            add_to_builtins('compat.tests.test_app.templatetags.test_app_tags')
+            template = Template(
+                '{% my_tag %}'
+            )
+            self.assertIn('Return value of my_tag', template.render(Context({})))
+
+
     class GetModelsTest(SimpleTestCase):
         """
         Sources:
