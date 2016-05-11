@@ -7,13 +7,15 @@ Via ``settings.configure`` you will be able to set all necessary settings
 for your app and run the tests as if you were calling ``./manage.py test``.
 
 """
-
+import os
 import sys
 import django
 from django.conf import settings
 
 
 def setup():
+    BASE_DIR = os.path.dirname(__file__)
+
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -36,6 +38,18 @@ def setup():
     if django.VERSION < (1, 7):
         MIDDLEWARE_CLASSES.append('django.middleware.transaction.TransactionMiddleware')
 
+    TEMPLATE_DIRS = [
+        os.path.join(BASE_DIR, 'compat/tests/templates/')
+    ]
+
+    TEMPLATES = [
+        {
+            'BACKEND': 'django.template.backends.django.DjangoTemplates',
+            'APP_DIRS': True,
+            'DIRS': TEMPLATE_DIRS,
+        },
+    ]
+
     from django.conf import settings
 
     if not settings.configured:
@@ -43,7 +57,10 @@ def setup():
             INSTALLED_APPS=INSTALLED_APPS,
             DATABASES=DATABASES,
             ROOT_URLCONF='compat.tests.urls',
-            MIDDLEWARE_CLASSES = MIDDLEWARE_CLASSES, )
+            MIDDLEWARE_CLASSES=MIDDLEWARE_CLASSES,
+            TEMPLATE_DIRS=TEMPLATE_DIRS,
+            TEMPLATES=TEMPLATES,
+        )
 
 
 def runtests(*test_args):

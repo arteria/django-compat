@@ -351,6 +351,14 @@ COMPATIBLE_OBJECTS = [
         'name': 'get_template_loaders',
         'notes': ''
     },
+    {
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'incompatible_versions': [],
+        'issues_versions': [],
+        'is_tested': True,
+        'name': 'render_to_string',
+        'notes': 'The new function signature (https://docs.djangoproject.com/en/1.9/releases/1.8/#dictionary-and-context-instance-arguments-of-rendering-functions) is backported to pre-1.8.',
+    },
     {   
         'compatible_versions': [(1, 4), (1, 7), (1, 8),],
         'incompatible_versions': [(1, 9),],

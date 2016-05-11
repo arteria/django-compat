@@ -4,16 +4,17 @@ from __future__ import unicode_literals
 import json
 import uuid
 
+import django
 from django.contrib.admin.models import LogEntry
 from django.core.serializers.json import DjangoJSONEncoder
 from django.test import TestCase, SimpleTestCase
-import django
 from django.contrib.auth.views import logout
 from django.core.urlresolvers import NoReverseMatch
-from django.template import Template, Context, TemplateSyntaxError
+from django.template import Template, Context, TemplateSyntaxError, RequestContext
 
 import compat
-from compat import import_module, resolve_url, JsonResponse, get_model, get_template_loaders
+from compat import (import_module, resolve_url, JsonResponse, get_model, render_to_string,
+                    get_template_loaders)
 from compat.docs.compatibility import is_compatible
 from compat.tests.test_app.models import UnimportantThing
 
@@ -377,3 +378,31 @@ class JsonResponseTests(SimpleTestCase):
         def test_json_response_passing_arguments_to_json_dumps(self):
             response = JsonResponse({'foo': 'bar'}, json_dumps_params={'indent': 2})
             self.assertEqual(response.content.decode(), '{\n  "foo": "bar"\n}')
+
+
+class RenderToStringTest(TestCase):
+
+    template_name = 'test_context.html'
+
+    def test_basic(self):
+        self.assertEqual(render_to_string(self.template_name), 'obj:')
+
+    def test_positional_arg(self):
+        self.assertEqual(render_to_string(self.template_name, {'obj': 'test'}), 'obj:test')
+
+    if django.VERSION < (1, 10):
+        def test_dictionary_kwarg(self):
+            self.assertEqual(render_to_string(self.template_name, dictionary={'obj': 'test'}), 'obj:test')
+
+        def test_context_instance_kwarg(self):
+            self.assertEqual(render_to_string(self.template_name, context_instance=Context({'obj': 'test'})), 'obj:test')
+
+        def test_request_context(self):
+            self.assertEqual(render_to_string(self.template_name, context_instance=RequestContext(None, {'obj': 'test'})), 'obj:test')
+
+        def test_dictionary_and_context_instance_kwarg(self):
+            self.assertEqual(render_to_string(self.template_name, dictionary={'obj': '1'}, context_instance=Context({'obj': '2'})), 'obj:1')
+
+    # Fails 1.4
+    def test_context_kwarg(self):
+        self.assertEqual(render_to_string(self.template_name, context={'obj': 'test'}), 'obj:test')

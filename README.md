@@ -77,6 +77,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 |`parse_qs`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`patterns`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`python_2_unicode_compatible`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`render_to_string`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|The new function signature (https://docs.djangoproject.com/en/1.9/releases/1.8/#dictionary-and-context-instance-arguments-of-rendering-functions) is backported to pre-1.8.|
 |`resolve_url`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`rollback`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Transaction savepoint (sid) is required for Django < 1.8|
 |`simplejson`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||

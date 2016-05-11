@@ -406,6 +406,41 @@ else:
     )
 
 
+from django.template.loader import render_to_string as render_to_string_django
+
+_context_instance_undefined = object()
+_dictionary_undefined = object()
+_dirs_undefined = object()
+
+def render_to_string(template_name, context=None,
+                     context_instance=_context_instance_undefined,
+                     dirs=_dirs_undefined,
+                     dictionary=_dictionary_undefined,
+                     request=None, using=None):
+    if (context_instance is _context_instance_undefined and dirs is _dirs_undefined and
+            dictionary is _dictionary_undefined):
+        if django.VERSION >= (1, 8):
+            # Call new render_to_string with new arguments
+            return render_to_string_django(template_name, context, request, using)
+        else:
+            # Call legacy render_to_string with new arguments
+            from django.template import RequestContext
+            context_instance = RequestContext(request) if request else None
+            return render_to_string_django(template_name, context, context_instance)
+    else:
+        if django.VERSION >= (1, 10):
+            # Call new render_to_string with legacy arguments
+            raise NotImplementedError('Django compat does not support calling post-1.8 render_to_string with pre-1.8 '
+                                      'keyword arguments')
+        else:
+            # Call legacy render_to_string with legacy arguments
+            if dictionary is _dictionary_undefined:
+                dictionary = {}
+            if context_instance is _context_instance_undefined:
+                context_instance = None
+            return render_to_string_django(template_name, dictionary, context_instance)
+
+
 ### Undocumented ###
 
 try:
@@ -482,4 +517,5 @@ __all__ = [
     'Resolver404', 'ResolverMatch', 'clear_url_caches', 'get_callable', 'get_mod_func', 'get_ns_resolver',
     'get_resolver', 'get_script_prefix', 'get_urlconf', 'is_valid_path', 'resolve', 'reverse', 'reverse_lazy',
     'set_script_prefix', 'set_urlconf',
+    'render_to_string',
 ]
