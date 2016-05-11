@@ -50,7 +50,7 @@ install_requires = [
 
 setup(
     name="django-compat",
-    version="1.0.10",
+    version="1.0.11",
     author='arteria GmbH',
     author_email="admin@arteria.ch",
     packages=find_packages(),
