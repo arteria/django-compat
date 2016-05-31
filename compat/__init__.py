@@ -87,7 +87,7 @@ try:
     get_model = apps.get_model
 except ImportError:
     from django.db.models.loading import get_model
-    
+
 
 def get_model_name(model_cls):
     try:
@@ -305,7 +305,7 @@ if django.VERSION < (1, 5):
     from django.utils import simplejson
 else:
     import json as simplejson
-    
+
 try:
     from collections import OrderedDict as SortedDict
 except ImportError:
@@ -464,6 +464,17 @@ else:
 # commit_on_success replaced by atomic in Django >=1.8
 atomic = commit_on_success = getattr(django.db.transaction, 'atomic', None) or getattr(django.db.transaction, 'commit_on_success')
 
+# Removed from django.contrib.sites.models in Django 1.9
+try:
+    from django.contrib.sites.shortcuts import get_current_site
+except ImportError:
+    from django.contrib.sites.models import get_current_site
+
+# Renamed utils and removed in Django 1.9
+try:
+    from django.contrib.admin import utils as admin_utils
+except ImportError:
+    from django.contrib.admin import util as admin_utils
 
 # the tests will try to import these
 __all__ = [
@@ -518,4 +529,6 @@ __all__ = [
     'get_resolver', 'get_script_prefix', 'get_urlconf', 'is_valid_path', 'resolve', 'reverse', 'reverse_lazy',
     'set_script_prefix', 'set_urlconf',
     'render_to_string',
+    'get_current_site',
+    'admin_utils'
 ]

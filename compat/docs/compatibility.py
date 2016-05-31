@@ -7,7 +7,7 @@ COMPATIBLE_VERSIONS = (
 )
 
 COMPATIBLE_OBJECTS = [
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -15,7 +15,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'get_model',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -23,7 +23,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'get_model_name',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -31,7 +31,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'get_user_model',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -39,7 +39,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'get_username_field',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -47,7 +47,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'import_string',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -55,7 +55,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'commit',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -63,7 +63,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'rollback',
         'notes': 'Transaction savepoint (sid) is required for Django < 1.8'
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -71,7 +71,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'url',
         'notes': 'Function used in `urlpatterns`',
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -79,7 +79,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'user_model_label',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -87,7 +87,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'patterns',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -95,7 +95,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'include',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -103,7 +103,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'handler404',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -111,7 +111,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'handler500',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -119,7 +119,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'get_ident',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -127,7 +127,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'urlparse',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -135,7 +135,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'parse_qs',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -143,7 +143,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'urlunparse',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -151,7 +151,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'urlencode',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -167,7 +167,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'DjangoJSONEncoder',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -175,7 +175,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'JsonResponse',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -183,7 +183,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'HttpResponseBase',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -191,7 +191,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'python_2_unicode_compatible',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -199,7 +199,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'URLValidator',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -207,7 +207,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'EmailValidator',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -215,7 +215,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'View',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -223,7 +223,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'StringIO',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -231,7 +231,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'BytesIO',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -239,7 +239,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'clean_manytomany_helptext',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -247,7 +247,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'smart_text',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -255,7 +255,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'force_text',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -263,7 +263,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'simplejson',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -271,7 +271,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'import_module',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -279,7 +279,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'VariableNode',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -287,7 +287,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'slugify',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -295,7 +295,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'SortedDict',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -303,7 +303,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'atomic',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -311,7 +311,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'commit_on_success',
         'notes': '`commit_on_success` replaced by `atomic` in Django >= 1.8'
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -319,7 +319,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'format_html',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -335,7 +335,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'close_connection',
         'notes': ''
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8),],
         'incompatible_versions': [(1, 9),],
         'issues_versions': [],
@@ -359,7 +359,7 @@ COMPATIBLE_OBJECTS = [
         'name': 'render_to_string',
         'notes': 'The new function signature (https://docs.djangoproject.com/en/1.9/releases/1.8/#dictionary-and-context-instance-arguments-of-rendering-functions) is backported to pre-1.8.',
     },
-    {   
+    {
         'compatible_versions': [(1, 4), (1, 7), (1, 8),],
         'incompatible_versions': [(1, 9),],
         'issues_versions': [],
@@ -367,8 +367,8 @@ COMPATIBLE_OBJECTS = [
         'name': 'GenericForeignKey',
         'notes': ''
     },
-    {   
-        
+    {
+
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
         'issues_versions': [],
@@ -405,6 +405,22 @@ COMPATIBLE_OBJECTS = [
         'name': 'urlresolvers',
         'notes': ''
     },
+    {
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'incompatible_versions': [],
+        'issues_versions': [],
+        'is_tested': False,
+        'name': 'get_current_site',
+        'notes': ''
+    },
+    {
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'incompatible_versions': [],
+        'issues_versions': [],
+        'is_tested': False,
+        'name': 'admin_utils',
+        'notes': ''
+    }
 ]
 
 # django.core.urlresolvers will be moved to django.urls in 1.10

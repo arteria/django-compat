@@ -8,14 +8,14 @@ Forward and backwards compatibility layer for Django 1.4, 1.7, 1.8, and 1.9
 
 ~~Consider [django-compat](https://github.com/arteria/django-compat) as an experiment based on the discussion [on reddit](http://redd.it/2jrr4l). Let's see where it goes.~~
 
-What started as an experiment based on [this discussion on reddit](http://redd.it/2jrr4l) has proven to be true in real life. 
+What started as an experiment based on [this discussion on reddit](http://redd.it/2jrr4l) has proven to be true in real life.
 
-django-compat is under active development. To learn about other features, bug fixes, and changes, please refer to the [changelog](https://github.com/arteria/django-compat#changelog). 
+django-compat is under active development. To learn about other features, bug fixes, and changes, please refer to the [changelog](https://github.com/arteria/django-compat#changelog).
 
 # Who uses django-compat
 
 Two popular examples of open source reusable app that uses django-compat are [django-hijack](https://github.com/arteria/django-hijack/) and [django-background-tasks](https://github.com/arteria/django-background-tasks).   
-Want to have yours listed here? Send us a PR. 
+Want to have yours listed here? Send us a PR.
 
 # Why use django-compat
 
@@ -34,7 +34,7 @@ Using one of the compatible objects is easy. For example
 	urlpatterns = patterns('ABC.views',
     		url(r'^abc/$', 'abc', name='abc-link'),
    	...
-	
+
 See a full example [here](https://github.com/arteria/django-hijack/blob/4966d8865e7e829a562ff2724771628c6590f841/hijack/urls.py#L1).
 
 
@@ -43,6 +43,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 
 |Compatible object|Specifically tested|1.4|1.7|1.8|1.9|Notes|
 |---|---|---|---|---|---|---|
+|`admin_utils`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`BytesIO`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`DjangoJSONEncoder`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`EmailValidator`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
@@ -63,6 +64,7 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 |`commit_on_success`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|`commit_on_success` replaced by `atomic` in Django >= 1.8|
 |`force_text`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`format_html`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
+|`get_current_site`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`get_ident`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`get_model`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`get_model_name`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
@@ -92,14 +94,14 @@ See a full example [here](https://github.com/arteria/django-hijack/blob/4966d886
 |`user_model_label`|:heavy_multiplication_x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:||
 |`templatetags.compat.verbatim`|:heavy_check_mark:|:warning:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|Templatetag; import with `{% load verbatim from compat %}`. 1.4: Does not allow specific closing tags, e.g. `{% endverbatim myblock %}`, and does not preserve whitespace inside tags.|
 
-# Resources and references 
+# Resources and references
 
-## Resources 
+## Resources
 * https://github.com/ubernostrum/django-compat-lint
 * https://docs.djangoproject.com/en/dev/misc/api-stability/
 * https://docs.djangoproject.com/en/dev/topics/python3/
-* http://andrewsforge.com/presentation/upgrading-django-to-17/ 
- 
+* http://andrewsforge.com/presentation/upgrading-django-to-17/
+
 ## compat.py
 
 Bits and bites of the following projects were re-used to build [django-compat](https://github.com/arteria/django-compat).
@@ -113,7 +115,7 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 - [X] https://github.com/evonove/django-oauth-toolkit/blob/master/oauth2_provider/templatetags/compat.py
 - [ ] https://github.com/kennethreitz/requests/blob/master/requests/compat.py
 - [ ] https://github.com/mitsuhiko/jinja2/blob/master/jinja2/_compat.py
-- [ ] https://github.com/jaraco/setuptools/blob/master/setuptools/compat.py 
+- [ ] https://github.com/jaraco/setuptools/blob/master/setuptools/compat.py
 - [ ] https://github.com/mariocesar/sorl-thumbnail/blob/master/sorl/thumbnail/compat.py
 
 
@@ -131,7 +133,7 @@ Bits and bites of the following projects were re-used to build [django-compat](h
 
 ### 2015/07/15
 
-* ``add_to_builtins`` was added 
+* ``add_to_builtins`` was added
 
-### 2015/07/08 
-* ``get_query_set``/``get_queryset`` support was dropped again (see [#29](https://github.com/arteria/django-compat/issues/29)) 
+### 2015/07/08
+* ``get_query_set``/``get_queryset`` support was dropped again (see [#29](https://github.com/arteria/django-compat/issues/29))
