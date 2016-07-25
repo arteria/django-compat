@@ -43,9 +43,17 @@ except ImportError:
     from six.moves._thread import get_ident  # noqa
 
 try:
-    from django.conf.urls import url, patterns, include, handler404, handler500
+    from django.conf.urls import url, include, handler404, handler500
 except ImportError:
-    from django.conf.urls.defaults import url, patterns, include, handler404, handler500  # pyflakes:ignore
+    from django.conf.urls.defaults import url, include, handler404, handler500  # pyflakes:ignore
+
+try:
+    from django.conf.urls import patterns
+except ImportError:
+    try:
+        from django.conf.urls.defaults import patterns # pyflakes:ignore
+    except ImportError:
+        pass
 
 
 # Handle django.utils.encoding rename in 1.5 onwards.
@@ -344,19 +352,6 @@ except ImportError:
                             six.iteritems(kwargs)])
         return html.mark_safe(format_string.format(*args_safe, **kwargs_safe))
 
-
-try:
-    from django.shortcuts import resolve_url
-except ImportError:  # django < 1.5
-    from .shortcuts import resolve_url
-
-
-try:
-    from django.shortcuts import resolve_url
-except ImportError:  # django < 1.5
-    from .shortcuts import resolve_url
-
-
 try:
     from django.db import close_old_connections as close_connection
 except ImportError:  # django < 1.8
@@ -393,17 +388,23 @@ if django.VERSION >= (1, 10):
     from django.urls import (
         clear_url_caches, get_script_prefix, get_urlconf,
         is_valid_path, resolve, reverse, reverse_lazy, set_script_prefix,
-        set_urlconf, LocaleRegexProvider, LocaleRegexURLResolver, RegexURLPattern,
-        RegexURLResolver, ResolverMatch, get_ns_resolver, get_resolver, get_callable, get_mod_func
+        set_urlconf, LocaleRegexProvider, LocaleRegexURLResolver, NoReverseMatch, RegexURLPattern,
+        RegexURLResolver, Resolver404, ResolverMatch, get_ns_resolver, get_resolver, get_callable, get_mod_func
     )
 else:
     import django.core.urlresolvers as urlresolvers
     from django.core.urlresolvers import (
         clear_url_caches, get_script_prefix, get_urlconf,
         is_valid_path, resolve, reverse, reverse_lazy, set_script_prefix,
-        set_urlconf, LocaleRegexProvider, LocaleRegexURLResolver, RegexURLPattern,
-        RegexURLResolver, ResolverMatch, get_ns_resolver, get_resolver, get_callable, get_mod_func
+        set_urlconf, LocaleRegexProvider, LocaleRegexURLResolver, NoReverseMatch, RegexURLPattern,
+        RegexURLResolver, Resolver404, ResolverMatch, get_ns_resolver, get_resolver, get_callable, get_mod_func
     )
+
+try:
+    from django.shortcuts import resolve_url
+except ImportError:  # django < 1.5
+    from .shortcuts import resolve_url
+
 
 
 from django.template.loader import render_to_string as render_to_string_django

@@ -1,6 +1,6 @@
 
 
-from django.core import urlresolvers
+from compat import urlresolvers
 from django.utils.functional import Promise
 
 

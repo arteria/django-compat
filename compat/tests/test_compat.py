@@ -115,13 +115,14 @@ class CompatTests(TestCase):
         self.assertEqual('/accounts/logout/', resolved_url)
     '''
 
-    def test_resolve_url__valid_view_name(self):
-        """
-        Tests that passing a view function to ``resolve_url`` will result in
-        the URL path mapping to that view.
-        """
-        resolved_url = resolve_url('django.contrib.auth.views.logout')
-        self.assertEqual('/accounts/logout/', resolved_url)
+    if django.VERSION < (1, 10):
+        def test_resolve_url__valid_view_name(self):
+            """
+            Tests that passing a view function to ``resolve_url`` will result in
+            the URL path mapping to that view.
+            """
+            resolved_url = resolve_url('django.contrib.auth.views.logout')
+            self.assertEqual('/accounts/logout/', resolved_url)
 
     def test_resolve_url__domain(self):
         """

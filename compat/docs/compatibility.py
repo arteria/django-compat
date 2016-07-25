@@ -8,7 +8,7 @@ COMPATIBLE_VERSIONS = (
 
 COMPATIBLE_OBJECTS = [
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -16,7 +16,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -24,7 +24,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -32,7 +32,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -40,7 +40,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -48,7 +48,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': True,
@@ -56,7 +56,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': True,
@@ -72,7 +72,7 @@ COMPATIBLE_OBJECTS = [
         'notes': 'Function used in `urlpatterns`',
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -81,14 +81,14 @@ COMPATIBLE_OBJECTS = [
     },
     {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
-        'incompatible_versions': [],
+        'incompatible_versions': [(1, 10)],
         'issues_versions': [],
         'is_tested': False,
         'name': 'patterns',
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -96,7 +96,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -104,7 +104,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -112,7 +112,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -120,7 +120,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -128,7 +128,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -136,7 +136,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -144,7 +144,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -152,7 +152,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -160,7 +160,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': True,
@@ -168,7 +168,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': True,
@@ -176,7 +176,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -184,7 +184,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -192,7 +192,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -200,7 +200,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -208,7 +208,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -216,7 +216,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -224,7 +224,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -232,7 +232,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -240,7 +240,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -248,7 +248,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -256,7 +256,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -264,7 +264,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': True,
@@ -272,7 +272,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -280,7 +280,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -288,7 +288,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -296,7 +296,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -304,7 +304,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': True,
@@ -312,7 +312,7 @@ COMPATIBLE_OBJECTS = [
         'notes': '`commit_on_success` replaced by `atomic` in Django >= 1.8'
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': True,
@@ -322,13 +322,13 @@ COMPATIBLE_OBJECTS = [
     {
         'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
         'incompatible_versions': [],
-        'issues_versions': [],
+        'issues_versions': [(1, 10)],
         'is_tested': True,
         'name': 'resolve_url',
-        'notes': ''
+        'notes': '1.10: Reversing by dotted path has been removed'
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -337,14 +337,14 @@ COMPATIBLE_OBJECTS = [
     },
     {
         'compatible_versions': [(1, 4), (1, 7), (1, 8),],
-        'incompatible_versions': [(1, 9),],
+        'incompatible_versions': [(1, 9), (1, 10)],
         'issues_versions': [],
         'is_tested': False,
         'name': 'add_to_builtins',
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': True,
@@ -352,7 +352,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': True,
@@ -361,7 +361,7 @@ COMPATIBLE_OBJECTS = [
     },
     {
         'compatible_versions': [(1, 4), (1, 7), (1, 8),],
-        'incompatible_versions': [(1, 9),],
+        'incompatible_versions': [(1, 9), (1, 10)],
         'issues_versions': [],
         'is_tested': False,
         'name': 'GenericForeignKey',
@@ -369,7 +369,7 @@ COMPATIBLE_OBJECTS = [
     },
     {
 
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -379,7 +379,7 @@ COMPATIBLE_OBJECTS = [
     },
     {
 
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': True,
@@ -388,7 +388,7 @@ COMPATIBLE_OBJECTS = [
         'notes': 'Templatetag; import with `{% load url from compat %}`',
     },
     {
-        'compatible_versions': [(1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [(1, 4)],
         'is_tested': True,
@@ -398,7 +398,7 @@ COMPATIBLE_OBJECTS = [
                  'tags, e.g. `{% endverbatim myblock %}`, and does not preserve whitespace inside tags.',
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -406,7 +406,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -414,7 +414,7 @@ COMPATIBLE_OBJECTS = [
         'notes': ''
     },
     {
-        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
+        'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
         'incompatible_versions': [],
         'issues_versions': [],
         'is_tested': False,
@@ -424,20 +424,20 @@ COMPATIBLE_OBJECTS = [
 ]
 
 # django.core.urlresolvers will be moved to django.urls in 1.10
-# for urlresolvers_import in [
-#     'LocaleRegexProvider', 'LocaleRegexURLResolver', 'NoReverseMatch', 'RegexURLPattern', 'RegexURLResolver',
-#     'Resolver404', 'ResolverMatch', 'clear_url_caches', 'get_callable', 'get_mod_func', 'get_ns_resolver',
-#     'get_resolver', 'get_script_prefix', 'get_urlconf', 'is_valid_path', 'resolve', 'reverse', 'reverse_lazy',
-#     'set_script_prefix', 'set_urlconf',
-# ]:
-#     COMPATIBLE_OBJECTS.append({
-#             'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9)],
-#             'incompatible_versions': [],
-#             'issues_versions': [],
-#             'is_tested': False,
-#             'name': urlresolvers_import,
-#             'notes': ''
-#     })
+for urlresolvers_import in [
+    'LocaleRegexProvider', 'LocaleRegexURLResolver', 'NoReverseMatch', 'RegexURLPattern', 'RegexURLResolver',
+    'Resolver404', 'ResolverMatch', 'clear_url_caches', 'get_callable', 'get_mod_func', 'get_ns_resolver',
+    'get_resolver', 'get_script_prefix', 'get_urlconf', 'is_valid_path', 'resolve', 'reverse', 'reverse_lazy',
+    'set_script_prefix', 'set_urlconf',
+]:
+    COMPATIBLE_OBJECTS.append({
+            'compatible_versions': [(1, 4), (1, 7), (1, 8), (1, 9), (1, 10)],
+            'incompatible_versions': [],
+            'issues_versions': [],
+            'is_tested': False,
+            'name': urlresolvers_import,
+            'notes': ''
+    })
 
 
 def is_compatible(object_name, version, module=''):
