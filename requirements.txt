@@ -1,2 +1,2 @@
 six
-django-nose>=1.2
+django-nose
