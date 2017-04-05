@@ -32,6 +32,8 @@ matrix:
   allow_failures:
   - env:
       - TOX_ENV=py35-django14
+  - env:
+      - TOX_ENV=py34-django14
 
 install:
     - pip install tox-travis
