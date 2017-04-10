@@ -44,7 +44,7 @@ except (OSError, IOError):
 
 setup(
     name="django-compat",
-    version="1.0.13",
+    version="1.0.14",
     author='arteria GmbH',
     author_email="admin@arteria.ch",
     packages=find_packages(),
