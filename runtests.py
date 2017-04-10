@@ -42,11 +42,20 @@ def setup():
         os.path.join(BASE_DIR, 'compat/tests/templates/')
     ]
 
+    _LOADERS = [
+        'django.template.loaders.filesystem.Loader',
+        'django.template.loaders.app_directories.Loader'
+    ]
+
+    TEMPLATE_LOADERS = _LOADERS
+
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'APP_DIRS': True,
             'DIRS': TEMPLATE_DIRS,
+            'OPTIONS': {
+                'loaders': _LOADERS
+            },
         },
     ]
 

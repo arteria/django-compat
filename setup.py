@@ -41,12 +41,6 @@ except (OSError, IOError):
         long_description=read('README.md')
     except (OSError, IOError):
         long_description = ""
-    
-    
-install_requires = [
-    'django>=1.4,<1.11',
-    'six>=1.10.0',
-]
 
 setup(
     name="django-compat",
@@ -58,7 +52,7 @@ setup(
     description="For- and backwards compatibility layer for Django 1.4, 1.7, 1.8, 1.9, and 1.10",
     long_description=long_description,
     license='MIT',
-    install_requires=install_requires,
+    install_requires=open('requirements.txt').read().splitlines(),
     url="https://github.com/arteria/django-compat",
     classifiers=[
         'Development Status :: 5 - Production/Stable',
