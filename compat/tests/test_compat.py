@@ -8,13 +8,14 @@ import django
 from django.contrib.admin.models import LogEntry
 from django.core.serializers.json import DjangoJSONEncoder
 from django.test import TestCase, SimpleTestCase
+from django.test.client import RequestFactory
 from django.contrib.auth.views import logout
 from django.core.urlresolvers import NoReverseMatch
 from django.template import Template, Context, TemplateSyntaxError, RequestContext
 
 import compat
 from compat import (import_module, resolve_url, JsonResponse, get_model, render_to_string,
-                    get_template_loaders)
+                    get_template_loaders, get_current_site)
 from compat.docs.compatibility import is_compatible
 from compat.tests.test_app.models import UnimportantThing
 
@@ -379,6 +380,15 @@ class JsonResponseTests(SimpleTestCase):
         def test_json_response_passing_arguments_to_json_dumps(self):
             response = JsonResponse({'foo': 'bar'}, json_dumps_params={'indent': 2})
             self.assertEqual(response.content.decode(), '{\n  "foo": "bar"\n}')
+
+    def test_get_current_site(self):
+        """
+        Test of get_current_site
+        """
+        rf = RequestFactory()
+        request = rf.get('/hello/')
+        site = get_current_site(request)
+        assert site
 
 
 class RenderToStringTest(TestCase):
