@@ -1,8 +1,10 @@
-
 django-compat
 =============
+
 [![Build Status](https://travis-ci.org/arteria/django-compat.svg?branch=master)](https://travis-ci.org/arteria/django-compat)
 [![Stories in Ready](https://badge.waffle.io/arteria/django-compat.png?label=ready&title=Ready)](https://waffle.io/arteria/django-compat)
+[![Coverage Status](https://coveralls.io/repos/arteria/django-compat/badge.svg?branch=master&service=github)](https://coveralls.io/github/arteria/django-compat?branch=master)
+[![PyPI](https://img.shields.io/pypi/v/django-compat.svg)](https://pypi.python.org/pypi/django-compat)
 
 Forward and backwards compatibility layer for Django ~~1.4~~, ~~1.7~~, 1.8, 1.9, 1.10 and 1.11
 
