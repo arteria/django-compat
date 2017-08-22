@@ -40,6 +40,9 @@ Using one of the compatible objects is easy. For example
 See a full example [here](https://github.com/arteria/django-hijack/blob/4966d8865e7e829a562ff2724771628c6590f841/hijack/urls.py#L1).
 
 
+| django-compat is free software. If you find it useful and would like to give back, please consider to make a donation using [Bitcoin](https://blockchain.info/payment_request?address=1AJkbQdcNkrHzxi91mB1kkPxh4t4BJ4hu4) or [PayPal](https://www.paypal.me/arteriagmbh). Thank you! |
+| ----- |
+
 
 # Compatible objects
 
