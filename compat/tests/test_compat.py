@@ -10,7 +10,10 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.test import TestCase, SimpleTestCase
 from django.test.client import RequestFactory
 from django.contrib.auth.views import logout
-from django.core.urlresolvers import NoReverseMatch
+try:
+    from django.urls import NoReverseMatch
+except ImportError:
+    from django.core.urlresolvers import NoReverseMatch
 from django.template import Template, Context, TemplateSyntaxError, RequestContext
 
 import compat

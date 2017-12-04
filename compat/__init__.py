@@ -383,7 +383,16 @@ def get_template_loaders():
     return loaders
 
 
-if django.VERSION >= (1, 10):
+if django.VERSION >= (2, 0):
+    from django.urls import (
+        clear_url_caches, get_script_prefix, get_urlconf,
+        is_valid_path, resolve, reverse, reverse_lazy, set_script_prefix,
+        set_urlconf, NoReverseMatch, URLPattern,
+        URLResolver, Resolver404, ResolverMatch, get_ns_resolver, get_resolver, get_callable, get_mod_func
+    )
+    RegexURLPattern = URLPattern
+    RegexURLResolver = URLResolver
+elif django.VERSION >= (1, 10):
     import django.urls as urlresolvers
     from django.urls import (
         clear_url_caches, get_script_prefix, get_urlconf,
@@ -391,6 +400,8 @@ if django.VERSION >= (1, 10):
         set_urlconf, LocaleRegexProvider, LocaleRegexURLResolver, NoReverseMatch, RegexURLPattern,
         RegexURLResolver, Resolver404, ResolverMatch, get_ns_resolver, get_resolver, get_callable, get_mod_func
     )
+    URLPattern = RegexURLPattern
+    URLResolver = RegexURLResolver
 else:
     import django.core.urlresolvers as urlresolvers
     from django.core.urlresolvers import (
@@ -399,6 +410,8 @@ else:
         set_urlconf, LocaleRegexProvider, LocaleRegexURLResolver, NoReverseMatch, RegexURLPattern,
         RegexURLResolver, Resolver404, ResolverMatch, get_ns_resolver, get_resolver, get_callable, get_mod_func
     )
+    URLPattern = RegexURLPattern
+    URLResolver = RegexURLResolver
 
 try:
     from django.shortcuts import resolve_url
@@ -525,7 +538,9 @@ __all__ = [
     'resolve_url',
     'close_connection',
     'get_template_loaders',
-    'LocaleRegexProvider', 'LocaleRegexURLResolver', 'NoReverseMatch', 'RegexURLPattern', 'RegexURLResolver',
+    'LocaleRegexProvider', 'LocaleRegexURLResolver', 'NoReverseMatch',
+    'RegexURLPattern', 'RegexURLResolver', # Old names before 2.0, alias after
+    'URLPattern', 'URLResolver', # New names in 2.0, alias before
     'Resolver404', 'ResolverMatch', 'clear_url_caches', 'get_callable', 'get_mod_func', 'get_ns_resolver',
     'get_resolver', 'get_script_prefix', 'get_urlconf', 'is_valid_path', 'resolve', 'reverse', 'reverse_lazy',
     'set_script_prefix', 'set_urlconf',
